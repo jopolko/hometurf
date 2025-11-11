@@ -162,7 +162,7 @@ MIT License - See LICENSE file for details
 
 ## Author
 
-Jason Carter ([@jasonicarter](https://github.com/jasonicarter))
+Joshua Opolko (https://github.com/jopolko)
 
 ## Acknowledgments
 
