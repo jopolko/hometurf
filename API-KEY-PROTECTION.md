@@ -359,7 +359,6 @@ tail -f /var/log/apache2/error.log | grep -i "rate limit\|referer"
 2. Generate NEW Google API key
 3. Add API restrictions in Google Cloud Console
 4. Update `.env` with your domain
-5. Revoke old exposed key: `AIzaSyC2KEzPJ_-YcpcFe5376bBF1EefI0HwvI8`
 
 ---
 

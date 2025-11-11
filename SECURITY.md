@@ -16,11 +16,12 @@
 
 **Action Required:**
 1. Copy `.env.example` to `.env`
-2. Add your NEW Google API key to `.env`
-3. **REVOKE the old exposed key:** `AIzaSyC2KEzPJ_-YcpcFe5376bBF1EefI0HwvI8`
+2. Generate a new Google API key with proper restrictions:
    - Go to: https://console.cloud.google.com/apis/credentials
-   - Delete or restrict the compromised key
-   - Generate a new API key with proper restrictions
+   - Create new API key
+   - Add HTTP referrer restrictions (set to your domain)
+   - Limit to Places API (New) and Geocoding API
+3. Add your new Google API key to `.env`
 
 ### 2. CORS Security
 **Previous Issue:** `Access-Control-Allow-Origin: *` allowed any website to use your API
@@ -107,10 +108,6 @@
    chmod 600 .env
    chown www-data:www-data .env
    ```
-
-5. **REVOKE the old compromised API key:**
-   - Old key to revoke: `AIzaSyC2KEzPJ_-YcpcFe5376bBF1EefI0HwvI8`
-   - Delete it from Google Cloud Console immediately
 
 ### Verify Setup
 
