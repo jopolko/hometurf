@@ -230,7 +230,17 @@ function sendSuccess($data) {
 }
 
 // Load environment variables from secure location
-loadEnv('/var/secrets/hometurf.env');
+// Try multiple locations in order of preference
+$envLocations = [
+    getenv('HOMETURF_ENV_PATH') ?: '/var/secrets/hometurf.env',  // Server config
+    __DIR__ . '/.env',  // Local development
+];
+
+foreach ($envLocations as $location) {
+    if (loadEnv($location)) {
+        break;
+    }
+}
 
 // Verify API key is configured
 if (!env('GOOGLE_API_KEY')) {
