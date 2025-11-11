@@ -46,7 +46,7 @@ hometurf/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/hometurf.git
+git clone https://github.com/jopolko/hometurf.git
 cd hometurf
 ```
 
@@ -174,4 +174,4 @@ Joshua Opolko (https://github.com/jopolko)
 
 ## Related Projects
 
-- [KidsEvents](https://github.com/yourusername/kidsevents) - Discover free kids events in Toronto
+- [KidsEvents](https://github.com/jopolko/kidsevents) - Discover free kids events in Toronto
