@@ -4,7 +4,6 @@ A comprehensive web application for comparing Toronto neighborhoods, helping fam
 
 ## Features
 
-- **Neighborhood Comparison**: Compare up to 3 neighborhoods side-by-side
 - **School Information**: Data on elementary and secondary schools from TDSB and TCDSB
 - **Childcare Centers**: Licensed childcare facilities with capacity and contact info
 - **Demographics**: Population statistics from 2016 and 2021 Census data
