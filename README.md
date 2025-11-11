@@ -2,11 +2,8 @@
 
 A comprehensive web application for comparing Toronto neighborhoods, helping families and newcomers make informed decisions about where to live based on schools, childcare, demographics, and amenities.
 
-![HomeTurf Screenshot](Screenshot_20241014-112453.png)
-
 ## Features
 
-- **Neighborhood Comparison**: Compare up to 3 neighborhoods side-by-side
 - **School Information**: Data on elementary and secondary schools from TDSB and TCDSB
 - **Childcare Centers**: Licensed childcare facilities with capacity and contact info
 - **Demographics**: Population statistics from 2016 and 2021 Census data
@@ -15,7 +12,7 @@ A comprehensive web application for comparing Toronto neighborhoods, helping fam
 
 ## Live Demo
 
-Visit: [https://jasonicarter.github.io/hometurf/](https://jasonicarter.github.io/hometurf/)
+Visit: [https://joshuaopolko.com/hometurf/](https://joshuaopolko.com/hometurf/)
 
 ## Technology Stack
 
@@ -49,7 +46,7 @@ hometurf/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/hometurf.git
+git clone https://github.com/jopolko/hometurf.git
 cd hometurf
 ```
 
@@ -165,7 +162,7 @@ MIT License - See LICENSE file for details
 
 ## Author
 
-Jason Carter ([@jasonicarter](https://github.com/jasonicarter))
+Joshua Opolko (https://github.com/jopolko)
 
 ## Acknowledgments
 
@@ -177,4 +174,4 @@ Jason Carter ([@jasonicarter](https://github.com/jasonicarter))
 
 ## Related Projects
 
-- [KidsEvents](https://github.com/yourusername/kidsevents) - Discover free kids events in Toronto
+- [KidsEvents](https://github.com/jopolko/kidsevents) - Discover free kids events in Toronto

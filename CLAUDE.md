@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an empty project directory (`/var/www/html/on`) within a WordPress installation environment. The directory has been configured with a complete spec-driven development workflow using Claude Code custom commands and agents.
+This is a project directory (`/var/www/html/hometurf`) within a WordPress installation environment. The directory has been configured with a complete spec-driven development workflow using Claude Code custom commands and agents.
 
 ## Development Workflow
 
