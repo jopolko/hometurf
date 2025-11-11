@@ -2,8 +2,6 @@
 
 A comprehensive web application for comparing Toronto neighborhoods, helping families and newcomers make informed decisions about where to live based on schools, childcare, demographics, and amenities.
 
-![HomeTurf Screenshot](Screenshot_20241014-112453.png)
-
 ## Features
 
 - **Neighborhood Comparison**: Compare up to 3 neighborhoods side-by-side
@@ -15,7 +13,7 @@ A comprehensive web application for comparing Toronto neighborhoods, helping fam
 
 ## Live Demo
 
-Visit: [https://jasonicarter.github.io/hometurf/](https://jasonicarter.github.io/hometurf/)
+Visit: [https://joshuaopolko.com/hometurf/](https://joshuaopolko.com/hometurf/)
 
 ## Technology Stack
 
