@@ -1,0 +1,3151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeTurf - Toronto Neighborhood Guide | Schools, Childcare & Demographics</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find your perfect Toronto neighborhood with HomeTurf. Search demographics, schools, licensed childcare centers, income levels, and diversity data. Make informed decisions about where to live in Toronto.">
+    <meta name="keywords" content="Toronto neighborhoods, Toronto schools, Toronto childcare, Toronto demographics, Toronto neighborhood search, Toronto census data, TDSB schools, licensed childcare Toronto, neighborhood statistics, Toronto real estate research, Toronto family neighborhoods, Toronto housing search, Toronto community profiles, neighborhood comparison Toronto">
+    <meta name="author" content="Joshua Opolko">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joshuaopolko.com/hometurf/">
+    <meta property="og:title" content="HomeTurf - Toronto Neighborhood Guide">
+    <meta property="og:description" content="Find your perfect Toronto neighborhood. Search demographics, schools, childcare, income levels, and diversity data.">
+    <meta property="og:image" content="https://joshuaopolko.com/hometurf/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:secure_url" content="https://joshuaopolko.com/hometurf/og-image.jpg">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@joshuaopolko">
+    <meta name="twitter:creator" content="@joshuaopolko">
+    <meta name="twitter:url" content="https://joshuaopolko.com/hometurf/">
+    <meta name="twitter:title" content="HomeTurf - Toronto Neighborhood Guide">
+    <meta name="twitter:description" content="Find your perfect Toronto neighborhood. Search demographics, schools, childcare, income levels, and diversity data.">
+    <meta name="twitter:image" content="https://joshuaopolko.com/hometurf/og-image.jpg">
+    <meta name="twitter:image:alt" content="HomeTurf neighborhood search showing Toronto demographics and school data">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://joshuaopolko.com/hometurf/">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="CA-ON">
+    <meta name="geo.placename" content="Toronto">
+    <meta name="geo.position" content="43.653226;-79.383184">
+    <meta name="ICBM" content="43.653226, -79.383184">
+
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GZN9MX2P4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1GZN9MX2P4');
+    </script>
+    <!-- End Google Analytics -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 20%, #f0ebe0 40%, #ebe6d9 60%, #e8e3d6 80%, #f9f7f4 100%);
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            animation: gradientShift 15s ease infinite;
+            -webkit-animation: gradientShift 15s ease infinite;
+            will-change: background-position;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 50% 50%; }
+            66% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @-webkit-keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 50% 50%; }
+            66% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        /* Custom scrollbar for schools and childcare containers */
+        #schools-scrollable::-webkit-scrollbar,
+        #childcare-scrollable::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        #schools-scrollable::-webkit-scrollbar-track,
+        #childcare-scrollable::-webkit-scrollbar-track {
+            background: rgba(139, 115, 85, 0.1);
+            border-radius: 10px;
+            margin: 4px 0;
+        }
+
+        #schools-scrollable::-webkit-scrollbar-thumb,
+        #childcare-scrollable::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%);
+            border-radius: 10px;
+            border: 2px solid rgba(251, 247, 239, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        #schools-scrollable::-webkit-scrollbar-thumb:hover,
+        #childcare-scrollable::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #6b5d4f 0%, #5a4d42 100%);
+            border: 2px solid rgba(251, 247, 239, 0.5);
+        }
+
+        /* Smooth scrolling for containers */
+        #schools-scrollable,
+        #childcare-scrollable {
+            scroll-behavior: smooth;
+        }
+
+        /* Collapsible section styles */
+        .section-collapsible {
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .user-select-none {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        /* Hover effect for collapsible headers */
+        .glass-card h2.cursor-pointer:hover {
+            transform: translateX(5px);
+        }
+
+        .glass-card h2.cursor-pointer:active {
+            transform: translateX(3px) scale(0.99);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        .gradient-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
+        }
+        .search-input {
+            transition: all 0.3s ease;
+            border: 2px solid rgba(139, 115, 85, 0.2);
+        }
+
+        .search-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(139, 115, 85, 0.15);
+            border-color: #8b7355;
+            outline: none;
+        }
+
+        /* Mobile padding adjustment for search input */
+        @media (max-width: 640px) {
+            .search-input {
+                padding-left: 2rem !important;
+                padding-right: 0.375rem !important;
+                padding-top: 0.625rem !important;
+                padding-bottom: 0.625rem !important;
+                font-size: 0.875rem !important;
+                border-width: 1px !important;
+            }
+            .search-input + .autocomplete-dropdown {
+                left: 0;
+                right: 0;
+            }
+            /* Adjust search icon position and size for mobile */
+            header .fa-search.absolute {
+                left: 0.5rem !important;
+                font-size: 0.8rem !important;
+            }
+            /* Reduce gap between search input and button on mobile */
+            header .flex.gap-2 {
+                gap: 0.25rem !important;
+            }
+            /* Make search button more compact on mobile */
+            #search-button {
+                padding-left: 0.625rem !important;
+                padding-right: 0.625rem !important;
+                padding-top: 0.625rem !important;
+                padding-bottom: 0.625rem !important;
+                font-size: 1rem !important;
+            }
+            #search-button .fa-arrow-right {
+                font-size: 0.875rem !important;
+            }
+            /* Reduce header horizontal padding on mobile */
+            header .max-w-4xl {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+        }
+        .autocomplete-dropdown {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 115, 85, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .autocomplete-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+
+        .autocomplete-item:hover {
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(107, 93, 79, 0.08) 100%);
+            transform: translateX(4px);
+        }
+        .autocomplete-item-main {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        .autocomplete-item-sub {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.06) 0%, rgba(107, 93, 79, 0.06) 100%);
+            border: 1px solid rgba(139, 115, 85, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 115, 85, 0.15);
+        }
+
+        .hero-icon {
+            font-size: 6rem;
+            background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .modern-loader {
+            width: 64px;
+            height: 64px;
+            border: 4px solid transparent;
+            border-top-color: #8b7355;
+            border-right-color: #6b5d4f;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+
+        /* Touch-friendly clickable elements */
+        a, button {
+            -webkit-tap-highlight-color: rgba(139, 115, 85, 0.2);
+            cursor: pointer;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            /* Mobile touch devices */
+            a:not(.gradient-button),
+            button:not(.gradient-button) {
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+
+            .gradient-button {
+                box-shadow: 0 4px 15px rgba(139, 115, 85, 0.35) !important;
+            }
+
+            a:active, button:active {
+                opacity: 0.8;
+                transform: scale(0.98);
+            }
+
+            .neighborhood-pill:active {
+                transform: scale(0.95);
+                opacity: 0.8;
+                box-shadow: 0 1px 2px rgba(139, 115, 85, 0.2) !important;
+            }
+        }
+
+        .neighborhood-pill {
+            -webkit-tap-highlight-color: rgba(139, 115, 85, 0.2);
+            transition: all 0.15s ease;
+        }
+
+        .neighborhood-pill:active {
+            transform: scale(0.95);
+            opacity: 0.75;
+            background-color: rgb(250, 248, 243) !important;
+            box-shadow: 0 1px 3px rgba(139, 115, 85, 0.2) !important;
+        }
+
+        .footer-link {
+            position: relative;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%);
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* Visual Chart Enhancements */
+        .chart-container {
+            position: relative;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        .mini-chart-container {
+            position: relative;
+            height: 80px;
+            width: 80px;
+            margin: 0 auto;
+        }
+
+        .stat-card-visual {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border: 1px solid rgba(139, 115, 85, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
+            padding: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card-visual:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 2px;
+            font-size: 1rem;
+        }
+
+        .rating-star {
+            color: #fbbf24;
+            filter: drop-shadow(0 1px 2px rgba(251, 191, 36, 0.3));
+        }
+
+        .rating-star.empty {
+            color: #d1d5db;
+        }
+
+        .gauge-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .language-bar {
+            background: linear-gradient(90deg, #8b7355 0%, #6b5d4f 100%);
+            height: 100%;
+            border-radius: 4px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
+        }
+
+        .language-bar-container {
+            background: rgba(139, 115, 85, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            height: 28px;
+            position: relative;
+        }
+
+        .school-rating-badge {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+        }
+
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .chart-value-label {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+
+    <!-- Data files -->
+    <script src="data-neighborhoods.js?v=7" onload="console.log('✓ data-neighborhoods.js loaded')" onerror="console.error('✗ Failed to load data-neighborhoods.js')"></script>
+    <script src="data-childcare.js?v=7" onload="console.log('✓ data-childcare.js loaded')" onerror="console.error('✗ Failed to load data-childcare.js')"></script>
+    <script src="data-schools.js?v=7" onload="console.log('✓ data-schools.js loaded')" onerror="console.error('✗ Failed to load data-schools.js')"></script>
+    <script src="data-agencies.js?v=7" onload="console.log('✓ data-agencies.js loaded')" onerror="console.error('✗ Failed to load data-agencies.js')"></script>
+
+    <!-- Immediately update count badges after data loads -->
+    <script>
+        // Global flag to track if location has been searched
+        var locationSearched = false;
+
+        (function() {
+            function updateBadges() {
+                // Don't update if user has already searched for a location
+                if (locationSearched) {
+                    console.log('Location searched, skipping initial badge update');
+                    return;
+                }
+
+                if (typeof schools !== 'undefined' && schools && schools.length > 0) {
+                    const schoolsBadge = document.getElementById('schools-count-badge');
+                    if (schoolsBadge) {
+                        schoolsBadge.textContent = '(' + schools.length + ' in Toronto)';
+                        console.log('✓ Schools badge updated:', schools.length);
+                    }
+                }
+
+                if (typeof childcareData !== 'undefined' && childcareData && childcareData.length > 0) {
+                    const childcareBadge = document.getElementById('childcare-count-badge');
+                    if (childcareBadge) {
+                        childcareBadge.textContent = '(' + childcareData.length + ' in Toronto)';
+                        console.log('✓ Childcare badge updated:', childcareData.length);
+                    }
+                }
+            }
+
+            // Try immediately and retry after page load
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', updateBadges);
+            } else {
+                updateBadges();
+            }
+
+            // Also try after a short delay in case DOM isn't ready yet
+            setTimeout(updateBadges, 100);
+            setTimeout(updateBadges, 500);
+        })();
+    </script>
+
+    <!-- Verify data is accessible -->
+    <script>
+        console.log('=== DATA VERIFICATION (var declarations, v7) ===');
+        console.log('childcareData:', typeof childcareData !== 'undefined' ? '✓ LOADED (' + childcareData.length + ' items)' : '✗ NOT LOADED');
+        console.log('schools:', typeof schools !== 'undefined' ? '✓ LOADED (' + schools.length + ' items)' : '✗ NOT LOADED');
+        console.log('neighborhoodProfiles:', typeof neighborhoodProfiles !== 'undefined' ? '✓ LOADED (' + neighborhoodProfiles.length + ' items)' : '✗ NOT LOADED');
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://joshuaopolko.com/hometurf/#website",
+          "url": "https://joshuaopolko.com/hometurf/",
+          "name": "HomeTurf",
+          "description": "Toronto Neighborhood Guide - Find your perfect neighborhood with comprehensive data on schools, childcare, demographics, and community statistics.",
+          "publisher": {
+            "@id": "https://joshuaopolko.com/hometurf/#organization"
+          },
+          "inLanguage": "en-CA",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://joshuaopolko.com/hometurf/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://joshuaopolko.com/hometurf/#organization",
+          "name": "HomeTurf",
+          "url": "https://joshuaopolko.com/hometurf/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://joshuaopolko.com/on/og-image.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          "description": "HomeTurf provides comprehensive Toronto neighborhood data including schools, licensed childcare centers, demographics, income levels, and diversity statistics to help families find their perfect community.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Toronto",
+            "addressRegion": "ON",
+            "addressCountry": "CA"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Toronto",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "ON",
+              "addressCountry": "CA"
+            }
+          },
+          "knowsAbout": [
+            "Toronto Neighborhoods",
+            "Toronto Schools",
+            "Licensed Childcare Toronto",
+            "Toronto Demographics",
+            "Toronto Census Data",
+            "Community Statistics",
+            "Neighborhood Research"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://joshuaopolko.com/hometurf/#webpage",
+          "url": "https://joshuaopolko.com/hometurf/",
+          "name": "HomeTurf - Toronto Neighborhood Guide | Schools, Childcare & Demographics",
+          "isPartOf": {
+            "@id": "https://joshuaopolko.com/hometurf/#website"
+          },
+          "about": {
+            "@id": "https://joshuaopolko.com/hometurf/#organization"
+          },
+          "description": "Find your perfect Toronto neighborhood with HomeTurf. Search demographics, schools, licensed childcare centers, income levels, and diversity data. Make informed decisions about where to live in Toronto.",
+          "inLanguage": "en-CA"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="min-h-screen">
+    <!-- Loader -->
+    <div class="loader-container fixed inset-0 hidden items-center justify-center z-50" id="loader" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);">
+        <div class="text-center">
+            <div class="modern-loader mx-auto"></div>
+            <p class="mt-4 text-lg font-semibold text-gray-700">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-header sticky top-0 z-40 shadow-lg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <!-- Logo -->
+            <div class="text-center mb-2" data-aos="fade-down">
+                <h1 class="text-2xl md:text-3xl font-bold gradient-text" style="font-family: 'Poppins', sans-serif; line-height: 1.1;">
+                    <a href="https://joshuaopolko.com/hometurf" style="text-decoration: none; color: inherit;">HomeTurf</a>
+                </h1>
+                <p class="text-xs md:text-sm text-gray-600 font-medium" style="margin-top: 0.15rem;">Toronto Neighborhood Guide</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center justify-between gap-4 mb-3 max-w-xl mx-auto" data-aos="fade-up">
+                <button class="gradient-button text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-0 cursor-pointer flex-1" id="language-button">
+                    <span class="flex items-center justify-center gap-2">
+                        <i class="fas fa-language"></i>
+                        <span>Language</span>
+                    </span>
+                </button>
+                <button class="gradient-button text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-0 cursor-pointer flex-1" id="growth-button">
+                    <span class="flex items-center justify-center gap-2">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Top 20</span>
+                    </span>
+                </button>
+                <button class="text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-0 cursor-pointer flex-1" id="location-button" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <span class="flex items-center justify-center gap-2">
+                        <i class="fas fa-location-dot"></i>
+                        <span>Location</span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex gap-2">
+                    <div class="flex-1 relative">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                        <input
+                            type="text"
+                            placeholder="Enter an address or neighborhood..."
+                            class="search-input w-full pl-10 pr-3 py-3 rounded-xl text-base"
+                            id="search-input"
+                            autocomplete="off"
+                            style="font-family: 'Inter', sans-serif;">
+                        <div class="autocomplete-dropdown absolute left-0 right-0 mt-2 hidden max-h-96 overflow-y-auto z-50" id="autocomplete-dropdown"></div>
+                    </div>
+                    <button class="gradient-button text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-0 cursor-pointer" id="search-button">
+                        <span class="hidden sm:inline">Search</span>
+                        <i class="fas fa-arrow-right sm:ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Welcome Message -->
+    <div id="no-location-message" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <div class="glass-card rounded-3xl p-12 shadow-2xl" data-aos="zoom-in">
+            <i class="hero-icon fas fa-map-marked-alt mb-8 block"></i>
+            <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8" style="font-family: 'Poppins', sans-serif; line-height: 1.3;">
+                Discover Your Perfect Neighborhood
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                Search for any Toronto address or use your current location to explore:
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-gradient-to-br from-amber-50 to-stone-50 p-6 rounded-2xl border border-amber-200" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-chart-line text-4xl text-amber-800 mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Demographics & Stats</h3>
+                    <p class="text-gray-600">Population, income, diversity, and more</p>
+                </div>
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border border-amber-200" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-school text-4xl text-amber-700 mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Schools</h3>
+                    <p class="text-gray-600">Find elementary and secondary schools</p>
+                </div>
+                <div class="bg-gradient-to-br from-orange-50 to-amber-50 p-6 rounded-2xl border border-amber-200" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-baby text-4xl text-amber-800 mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Childcare</h3>
+                    <p class="text-gray-600">Licensed facilities with capacity info</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 hidden" id="main-content">
+        <!-- Demographics -->
+        <div class="glass-card rounded-3xl p-6 mb-6 shadow-2xl" data-aos="fade-up">
+            <h2 class="text-2xl font-bold gradient-text mb-6 flex items-center gap-3" style="font-family: 'Poppins', sans-serif; position: relative; padding-bottom: 12px;">
+                <i class="fas fa-chart-pie"></i>
+                Demographics
+                <a href="#" id="googleMapsBtn" target="_blank" rel="noopener noreferrer" class="ml-auto gradient-button px-3 py-2 md:px-4 rounded-lg text-sm font-semibold flex md:items-center gap-1 md:gap-2 hover:scale-105 transition-transform" style="color: white !important; -webkit-text-fill-color: white !important;">
+                    <span class="flex flex-col md:flex-row items-center gap-1 md:gap-2">
+                        <i class="fas fa-map-marker-alt md:text-sm" style="font-size: 0.875rem;"></i>
+                        <span class="text-xs md:hidden" style="font-size: 0.65rem; line-height: 1;">Map</span>
+                        <span class="hidden md:inline" style="font-size: 0.75rem;">View on Google Maps</span>
+                    </span>
+                </a>
+                <span style="position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%); border-radius: 2px;"></span>
+            </h2>
+
+            <!-- Stats Grid with Visual Charts -->
+            <h3 class="text-xl font-semibold text-gray-700 mb-4 sr-only">Neighborhood Statistics</h3>
+
+            <!-- Key Stats (Large Cards) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
+                <!-- Neighborhood Name & Population -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="50">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide">Neighborhood</div>
+                    <div class="text-lg font-bold text-gray-800 mb-2" id="neighborhood">-</div>
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide">Population</div>
+                    <div class="text-base font-bold gradient-text" id="population">-</div>
+                </div>
+
+                <!-- 5 Year Growth (Text Only) -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide">5 Year Growth</div>
+                    <div class="text-xl font-bold" id="growth5yr-text" style="line-height: 1.2;">-</div>
+                </div>
+
+                <!-- Median Income (Text Only) -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide">Median Income</div>
+                    <div class="text-base font-bold text-green-600" id="income-text" style="line-height: 1.2;">-</div>
+                </div>
+
+                <!-- Household Size (Text Only) -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide">Household Size</div>
+                    <div class="text-xl font-bold text-amber-800" id="household-text" style="line-height: 1.2;">-</div>
+                </div>
+            </div>
+
+            <!-- Circular Progress Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
+                <!-- Children Percentage -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide text-center">Children (0-14)</div>
+                    <div class="mini-chart-container">
+                        <canvas id="childrenChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Rentals -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide text-center">Rentals</div>
+                    <div class="mini-chart-container">
+                        <canvas id="rentalsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Unemployment -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide text-center">Unemployment</div>
+                    <div class="mini-chart-container">
+                        <canvas id="unemploymentChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Transit Users -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide text-center">Transit Users</div>
+                    <div class="mini-chart-container">
+                        <canvas id="transitChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Immigrants -->
+                <div class="stat-card-visual" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="text-xs text-gray-500 mb-1 font-semibold uppercase tracking-wide text-center">Immigrants</div>
+                    <div class="mini-chart-container">
+                        <canvas id="immigrantChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages Section with Donut Chart -->
+            <div class="border-t-2 border-gray-100 pt-4" data-aos="fade-up">
+                <h3 class="text-sm font-bold text-gray-600 mb-3 uppercase tracking-wide flex items-center gap-2">
+                    <i class="fas fa-language text-amber-800"></i>
+                    Languages Spoken
+                </h3>
+                <div class="chart-container" style="height: 280px;">
+                    <canvas id="languagesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schools Section -->
+        <div class="glass-card rounded-3xl p-6 mb-6 shadow-2xl">
+            <h2 class="text-2xl font-bold gradient-text mb-6 flex items-center justify-between cursor-pointer user-select-none"
+                style="font-family: 'Poppins', sans-serif; position: relative; padding-bottom: 12px; transition: all 0.3s ease;"
+                onclick="toggleSection('schools')">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-school"></i>
+                    <span>Schools <span id="schools-count-badge" style="font-size: 0.85rem; font-weight: 400; color: #6b7280;"></span></span>
+                </div>
+                <i id="schools-toggle-icon" class="fas fa-chevron-down transition-transform" style="transition: transform 0.3s ease;"></i>
+                <span style="position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%); border-radius: 2px;"></span>
+            </h2>
+            <div id="schools-scroll-wrapper" class="max-w-3xl mx-auto section-collapsible" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease; border-radius: 12px; background: rgba(251, 247, 239, 0.3);">
+                <div id="schools-scrollable" style="max-height: 600px; overflow-y: auto; border-radius: 12px; padding: 0.75rem;">
+                    <div id="schools-container" style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Childcare Section -->
+        <div class="glass-card rounded-3xl p-6 mb-6 shadow-2xl">
+            <h2 class="text-2xl font-bold gradient-text mb-6 flex items-center justify-between cursor-pointer user-select-none"
+                style="font-family: 'Poppins', sans-serif; position: relative; padding-bottom: 12px; transition: all 0.3s ease;"
+                onclick="toggleSection('childcare')">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-baby-carriage"></i>
+                    <span>Childcare <span id="childcare-count-badge" style="font-size: 0.85rem; font-weight: 400; color: #6b7280;"></span></span>
+                </div>
+                <i id="childcare-toggle-icon" class="fas fa-chevron-down transition-transform" style="transition: transform 0.3s ease;"></i>
+                <span style="position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%); border-radius: 2px;"></span>
+            </h2>
+            <div id="childcare-scroll-wrapper" class="max-w-3xl mx-auto section-collapsible" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease; border-radius: 12px; background: rgba(251, 247, 239, 0.3);">
+                <div id="childcare-scrollable" style="max-height: 600px; overflow-y: auto; border-radius: 12px; padding: 0.75rem;">
+                    <div id="childcare-container" style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="glass-header mt-16 py-8 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex gap-8">
+                    <a href="#" class="footer-link text-gray-700 font-semibold hover:text-purple-600" onclick="document.getElementById('about-modal').style.display='block'; return false;">About</a>
+                    <a href="#" class="footer-link text-gray-700 font-semibold hover:text-purple-600" onclick="document.getElementById('sources-modal').style.display='block'; return false;">Data Sources</a>
+                    <a href="#" class="footer-link text-gray-700 font-semibold hover:text-purple-600" onclick="document.getElementById('contact-modal').style.display='block'; return false;">Contact</a>
+                    <a href="https://joshuaopolko.com/kidsevents" class="footer-link text-gray-700 font-semibold hover:text-purple-600" target="_blank" rel="noopener noreferrer">Kids Events</a>
+                </div>
+                <div class="text-gray-500">
+                    <span class="font-semibold">© 2025 HomeTurf</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- About Modal -->
+    <div id="about-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 1000; overflow: auto;">
+        <div class="min-h-screen px-4 flex items-center justify-center">
+            <div style="background: white; max-width: 700px; width: 100%; padding: 2rem; border-radius: 24px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); position: relative;">
+                <button onclick="document.getElementById('about-modal').style.display='none'" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; font-weight: 300; line-height: 1;">&times;</button>
+                <h2 class="text-4xl font-bold gradient-text mb-4" style="font-family: 'Poppins', sans-serif;">About HomeTurf</h2>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin-bottom: 1rem;">Find Your Perfect Neighborhood</h3>
+            <p style="margin-bottom: 1rem; line-height: 1.8;">HomeTurf helps home-buyers and growing families make confident decisions about where to put down roots. We know that choosing a neighborhood is about more than just finding a house—it's about finding a community where your family can thrive.</p>
+            <p style="margin-bottom: 1rem; line-height: 1.8;">Our platform brings together essential neighborhood data in one intuitive interface. From demographics and income levels to childcare availability and schools, HomeTurf gives you the complete picture of any neighborhood you're considering.</p>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 1rem;">What HomeTurf Shows You:</h3>
+            <p style="margin-bottom: 1rem; line-height: 1.8; color: #4b5563;">We've compiled census data, educational data, and community resources to help you understand what life is really like in each neighborhood. Explore population demographics, family composition, diversity levels, employment trends, and access to childcare—all the factors that matter when you're choosing where to raise your family or start your next chapter.</p>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 1rem;">Data-Driven. Family-Focused. Community-Centered.</h3>
+            <p style="margin-bottom: 1rem; line-height: 1.8; color: #4b5563;">HomeTurf takes the guesswork out of neighborhood research, so you can spend less time digging through spreadsheets and more time envisioning your future home.</p>
+            <p style="margin-top: 1.5rem; font-weight: 600; color: #8b7355;">Ready to explore? Start searching neighborhoods in your area today.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Sources Modal -->
+    <div id="sources-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 1000; overflow: auto;">
+        <div class="min-h-screen px-4 flex items-center justify-center">
+            <div style="background: white; max-width: 700px; width: 100%; padding: 2rem; border-radius: 24px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); position: relative;">
+                <button onclick="document.getElementById('sources-modal').style.display='none'" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; font-weight: 300; line-height: 1;">&times;</button>
+                <h2 class="text-4xl font-bold gradient-text mb-6" style="font-family: 'Poppins', sans-serif;">Data Sources</h2>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">HomeTurf aggregates information from trusted government and institutional sources to provide comprehensive neighborhood insights for Toronto families.</p>
+
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 0.75rem;">Census and Demographic Data</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563;">Population statistics, household composition, income levels, employment rates, immigration patterns, language diversity, and housing tenure information are sourced from <strong><a href="https://www12.statcan.gc.ca/census-recensement/index-eng.cfm" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Statistics Canada's 2021 Census of Population</a></strong>. This national census provides the most detailed demographic portrait of Canadian communities. Neighborhood boundaries are defined by the <strong><a href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/neighbourhood-profiles/" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">City of Toronto's 158 official Neighbourhood Profiles</a></strong>, which aggregate census data into distinct geographic areas based on the <a href="https://www12.statcan.gc.ca/census-recensement/index-eng.cfm" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Canada Census</a>. Population growth rates (5-year growth) are calculated by comparing the <strong>2016 Census</strong> with the <strong>2021 Census</strong> for each neighborhood.</p>
+
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 0.75rem;">Neighborhood Boundary Detection</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563;">HomeTurf uses <strong>official neighborhood boundary polygons</strong> from the <strong><a href="https://open.toronto.ca/" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">City of Toronto Open Data Portal</a></strong> to accurately identify which neighborhood contains any given address. When you search for an address or use your current location, the system employs a <strong><a href="https://en.wikipedia.org/wiki/Point_in_polygon" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">point-in-polygon algorithm</a></strong> to determine if your coordinates fall within the actual geographic boundaries of each neighborhood, rather than simply finding the nearest center point. This ensures maximum accuracy—for example, if you're standing at the edge of Little Portugal near its border with Roncesvalles, HomeTurf will correctly identify your neighborhood based on which boundary actually contains your location. For the 34 newest neighborhoods added to Toronto's 158-neighborhood system (which aren't in the older 140-neighborhood <a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">GeoJSON</a> dataset), the system falls back to nearest-center-point matching.</p>
+
+            <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563;"><strong>Important Note on Data Accuracy:</strong> When comparing HomeTurf data to Google search results, you may notice differences in population figures and growth rates. This occurs because Google often displays data for <strong>Electoral Districts</strong> (large political voting boundaries), while HomeTurf uses <strong>geographically-defined neighborhoods</strong> (smaller community areas). For example, "The Beaches" neighborhood (21,510 residents) is much smaller than the "Beaches-East York" electoral district (109,359 residents). For homebuyers researching specific communities, neighborhood-level data provides far more accurate and relevant information than broad electoral district statistics.</p>
+
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 0.75rem;">School Information</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563;">School locations, addresses, and basic information are compiled from the <strong><a href="https://www.tdsb.on.ca/" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Toronto District School Board (TDSB)</a></strong> public school directory. This includes public elementary and secondary schools across Toronto, providing families with information about nearby educational institutions in each neighborhood.</p>
+
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 0.75rem;">Licensed Childcare Centers</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563;">Licensed childcare center locations, addresses, capacity information, and age groups served are sourced from the <strong><a href="https://www.ontario.ca/page/ministry-education" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Ontario Ministry of Education's Licensed Child Care Database</a></strong>, available through the Province of Ontario's <strong><a href="https://data.ontario.ca/" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Ontario Data Catalogue</a></strong>. This registry includes all legally-operating childcare facilities that meet provincial standards for safety, staff qualifications, and program quality, ensuring families have access to verified, compliant care options.</p>
+
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin: 1.5rem 0 0.75rem;">Geographic and Mapping Services</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563;">Address search and <a href="https://en.wikipedia.org/wiki/Address_geocoding" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">geocoding</a> (converting addresses to map coordinates) are powered by <strong><a href="https://developers.google.com/maps/documentation/places/web-service" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Google Places API</a></strong> and <strong><a href="https://developers.google.com/maps/documentation/geocoding" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Google Geocoding API</a></strong>, providing accurate address suggestions and location data for the Greater Toronto Area. Interactive neighborhood maps utilize <strong><a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Google Maps</a></strong> to display precise geographic locations. Distance calculations use the <strong><a href="https://en.wikipedia.org/wiki/Haversine_formula" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: underline;">Haversine formula</a></strong> to compute straight-line distance, then apply a <strong>2.0x walking distance multiplier</strong> to account for Toronto's street grid, buildings, and non-direct routes. This approximation provides realistic walking distance estimates that closely match Google Maps walking directions.</p>
+
+            <p style="margin-top: 1.5rem; line-height: 1.8; font-style: italic; color: #6b7280;"><strong>Note:</strong> HomeTurf is an independent research tool and is not affiliated with or endorsed by any government agency, school board, or childcare provider. All data is presented for informational purposes only to support neighborhood research and decision-making.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 1000; overflow: auto;">
+        <div class="min-h-screen px-4 flex items-center justify-center">
+            <div style="background: white; max-width: 600px; width: 100%; padding: 2rem; border-radius: 24px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); position: relative;">
+                <button onclick="document.getElementById('contact-modal').style.display='none'" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; font-weight: 300; line-height: 1;">&times;</button>
+                <h2 class="text-4xl font-bold gradient-text mb-4" style="font-family: 'Poppins', sans-serif;">Contact</h2>
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: #8b7355; margin-bottom: 0.5rem;">Joshua Opolko</h3>
+            <p style="margin-bottom: 2rem; line-height: 1.8; color: #6b7280;">VR/AI Researcher & Developer | Technology Innovation Leader</p>
+
+            <div style="margin: 2rem 0;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: linear-gradient(to right, #dbeafe, #e9d5ff); border-radius: 12px;">
+                    <i class="fab fa-linkedin" style="font-size: 2rem; color: #8b7355; width: 40px;"></i>
+                    <div>
+                        <div style="font-weight: 700; margin-bottom: 0.25rem; color: #1f2937;">LinkedIn</div>
+                        <a href="https://www.linkedin.com/in/joshua-opolko/" target="_blank" rel="noopener noreferrer" style="color: #8b7355; text-decoration: none; font-weight: 600;">linkedin.com/in/joshua-opolko</a>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: linear-gradient(to right, #dbeafe, #e0e7ff); border-radius: 12px;">
+                    <i class="fab fa-x-twitter" style="font-size: 2rem; color: #1e40af; width: 40px;"></i>
+                    <div>
+                        <div style="font-weight: 700; margin-bottom: 0.25rem; color: #1f2937;">X (Twitter)</div>
+                        <a href="https://x.com/JoshuaOpolko" target="_blank" rel="noopener noreferrer" style="color: #1e40af; text-decoration: none; font-weight: 600;">x.com/JoshuaOpolko</a>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: linear-gradient(to right, #e9d5ff, #fbcfe8); border-radius: 12px;">
+                    <i class="fas fa-globe" style="font-size: 2rem; color: #ec4899; width: 40px;"></i>
+                    <div>
+                        <div style="font-weight: 700; margin-bottom: 0.25rem; color: #1f2937;">Website</div>
+                        <a href="https://joshuaopolko.com/" target="_blank" rel="noopener noreferrer" style="color: #ec4899; text-decoration: none; font-weight: 600;">joshuaopolko.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; line-height: 1.8; color: #4b5563;">Questions, feedback, or suggestions about HomeTurf? Feel free to reach out through LinkedIn, X, or visit my website to learn more about my work in VR, AI, and technology innovation.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data sources loaded from external files
+        // See: data-neighborhoods.js, data-childcare.js, data-schools.js, data-agencies.js
+
+        console.log('=== HOMETURF INDEX.HTML LOADED - VERSION 2024-10-24 (Boundary Polygons + 2x Walking Distance) ===');
+
+        // Toggle item function
+        function toggleItem(itemId) {
+            const content = document.getElementById(itemId + '-content');
+            const icon = document.getElementById(itemId + '-icon');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.classList.remove('open');
+            } else {
+                content.classList.add('open');
+                icon.classList.add('open');
+            }
+        }
+
+        // Toggle section collapse/expand (global scope for onclick handlers)
+        function toggleSection(sectionName) {
+            const wrapper = document.getElementById(`${sectionName}-scroll-wrapper`);
+            const icon = document.getElementById(`${sectionName}-toggle-icon`);
+
+            if (wrapper && icon) {
+                if (wrapper.style.maxHeight === '0px' || wrapper.style.maxHeight === '') {
+                    // Expand
+                    wrapper.style.maxHeight = '650px';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    // Collapse
+                    wrapper.style.maxHeight = '0px';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to top on page load/refresh
+            window.scrollTo(0, 0);
+
+            // Ensure page stays at top after all rendering
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
+
+            // Check if data arrays are loaded and set initial counts
+            console.log('=== Checking data arrays on DOMContentLoaded ===');
+
+            function updateInitialCounts() {
+                // Don't update if user has already searched for a location
+                if (typeof locationSearched !== 'undefined' && locationSearched) {
+                    console.log('Location already searched, skipping initial counts update');
+                    return;
+                }
+
+                try {
+                    console.log('childcareData:', typeof childcareData, childcareData ? childcareData.length : 'N/A');
+                    console.log('schools:', typeof schools, schools ? schools.length : 'N/A');
+                    console.log('neighborhoodProfiles:', typeof neighborhoodProfiles, neighborhoodProfiles ? neighborhoodProfiles.length : 'N/A');
+
+                    // Set initial counts to show total available in Toronto
+                    if (typeof schools !== 'undefined' && schools && schools.length > 0) {
+                        const schoolsCountBadge = document.getElementById('schools-count-badge');
+                        if (schoolsCountBadge) {
+                            schoolsCountBadge.textContent = '(' + schools.length + ' in Toronto)';
+                            console.log('✓ Set schools badge:', schools.length + ' in Toronto');
+                        } else {
+                            console.error('✗ schools-count-badge element not found');
+                        }
+                    } else {
+                        console.error('✗ schools data not available');
+                    }
+
+                    if (typeof childcareData !== 'undefined' && childcareData && childcareData.length > 0) {
+                        const childcareCountBadge = document.getElementById('childcare-count-badge');
+                        if (childcareCountBadge) {
+                            childcareCountBadge.textContent = '(' + childcareData.length + ' in Toronto)';
+                            console.log('✓ Set childcare badge:', childcareData.length + ' in Toronto');
+                        } else {
+                            console.error('✗ childcare-count-badge element not found');
+                        }
+                    } else {
+                        console.error('✗ childcareData not available');
+                    }
+                } catch (e) {
+                    console.error('Error accessing data arrays:', e.message);
+                }
+            }
+
+            // Try immediately and also after a small delay to ensure data is loaded
+            updateInitialCounts();
+            setTimeout(updateInitialCounts, 200);
+
+            // Display first 3 schools and childcare by default
+            function displayDefaultItems() {
+                // Don't display if user has already searched for a location
+                if (typeof locationSearched !== 'undefined' && locationSearched) {
+                    console.log('Location already searched, skipping default display');
+                    return;
+                }
+
+                if (typeof schools !== 'undefined' && schools && schools.length > 0) {
+                    const schoolsContainer = document.getElementById('schools-container');
+                    const schoolsWrapper = document.getElementById('schools-scroll-wrapper');
+                    const schoolsIcon = document.getElementById('schools-toggle-icon');
+                    const schoolsBadge = document.getElementById('schools-count-badge');
+
+                    if (schoolsContainer && schoolsWrapper) {
+                        // Get all schools for scrollable list
+                        const defaultSchools = schools;
+
+                        // Expand the section
+                        schoolsWrapper.style.maxHeight = '650px';
+                        if (schoolsIcon) schoolsIcon.style.transform = 'rotate(180deg)';
+
+                        // Badge already set by updateInitialCounts to show total in Toronto
+
+                        // Display items with lazy loading (3 at a time)
+                        setupLazyLoadedList(schoolsContainer, defaultSchools, (school, index) => {
+                            return createSchoolItem(school, null, index);
+                        });
+                    }
+                }
+
+                if (typeof childcareData !== 'undefined' && childcareData && childcareData.length > 0) {
+                    const childcareContainer = document.getElementById('childcare-container');
+                    const childcareWrapper = document.getElementById('childcare-scroll-wrapper');
+                    const childcareIcon = document.getElementById('childcare-toggle-icon');
+                    const childcareBadge = document.getElementById('childcare-count-badge');
+
+                    if (childcareContainer && childcareWrapper) {
+                        // Get all childcare centers for scrollable list
+                        const defaultChildcare = childcareData;
+
+                        // Expand the section
+                        childcareWrapper.style.maxHeight = '650px';
+                        if (childcareIcon) childcareIcon.style.transform = 'rotate(180deg)';
+
+                        // Badge already set by updateInitialCounts to show total in Toronto
+
+                        // Display items with lazy loading (3 at a time)
+                        setupLazyLoadedList(childcareContainer, defaultChildcare, (center, index) => {
+                            return createChildcareItem(center, null, index);
+                        });
+                    }
+                }
+            }
+
+            // Display default items after a short delay to ensure functions are loaded
+            setTimeout(displayDefaultItems, 500);
+
+            // Current location vars
+            let currentLocation = null;
+            let currentNeighborhood = null;
+            let isUpdatingResults = false;
+
+            // Check for neighborhood parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const neighborhoodParam = urlParams.get('neighborhood');
+            if (neighborhoodParam) {
+                const neighborhood = neighborhoodProfiles.find(n => n.name === neighborhoodParam);
+                if (neighborhood) {
+                    currentNeighborhood = neighborhood;
+                    currentLocation = neighborhood.location;
+                }
+            }
+            
+            // Utility functions
+            // Haversine formula for straight-line distance (as the crow flies)
+            function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371;
+                const dLat = deg2rad(lat2 - lat1);
+                const dLon = deg2rad(lon2 - lon1);
+                const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                return R * c;
+            }
+
+            // Cache for routing distances to avoid repeated API calls
+            const distanceCache = new Map();
+
+            // Calculate walking distance using Manhattan distance estimation for Toronto's grid
+            async function calculateWalkingDistance(lat1, lon1, lat2, lon2) {
+                // Create cache key
+                const cacheKey = `${lat1.toFixed(6)},${lon1.toFixed(6)}-${lat2.toFixed(6)},${lon2.toFixed(6)}`;
+
+                // Check cache first
+                if (distanceCache.has(cacheKey)) {
+                    return distanceCache.get(cacheKey);
+                }
+
+                // Calculate the differences in lat/lon
+                const latDiff = Math.abs(lat2 - lat1);
+                const lonDiff = Math.abs(lon2 - lon1);
+
+                // Convert lat/lon differences to kilometers
+                // At Toronto's latitude (~43.7°), 1° latitude ≈ 111km, 1° longitude ≈ 80km
+                const latDistance = latDiff * 111;
+                const lonDistance = lonDiff * 80;
+
+                // Use Manhattan distance (sum of horizontal + vertical) for grid-based cities
+                // Add a small diagonal factor (10%) for non-perfect grids
+                const manhattanDistance = latDistance + lonDistance;
+                const distance = manhattanDistance * 1.1; // 10% adjustment for diagonal routes
+
+                distanceCache.set(cacheKey, distance);
+                return distance;
+            }
+
+            // Walking distance multiplier for converting straight-line to realistic walking distance
+            const WALKING_DISTANCE_MULTIPLIER = 2.0;
+
+            // Main distance calculation function (for backwards compatibility)
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                // Calculate straight-line Haversine distance
+                const straightLine = calculateHaversineDistance(lat1, lon1, lat2, lon2);
+
+                // Apply walking distance multiplier to account for street grid
+                // Streets, buildings, and non-direct routes typically double the distance
+                return straightLine * WALKING_DISTANCE_MULTIPLIER;
+            }
+
+            function deg2rad(deg) { return deg * (Math.PI/180); }
+
+            // Point-in-polygon ray casting algorithm
+            function pointInPolygon(point, polygon) {
+                const [lon, lat] = point;
+                let inside = false;
+
+                for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+                    const [xi, yi] = polygon[i];
+                    const [xj, yj] = polygon[j];
+
+                    const intersect = ((yi > lat) !== (yj > lat)) &&
+                        (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi);
+                    if (intersect) inside = !inside;
+                }
+
+                return inside;
+            }
+
+            // Find neighborhood by checking if point is within boundaries
+            function findNeighborhoodByBoundary(lat, lon) {
+                const point = [lon, lat]; // GeoJSON uses [lon, lat]
+
+                for (const neighborhood of neighborhoodProfiles) {
+                    if (!neighborhood.boundary) continue;
+
+                    const geom = neighborhood.boundary;
+
+                    if (geom.type === 'Polygon') {
+                        // Check the outer ring (first array of coordinates)
+                        if (pointInPolygon(point, geom.coordinates[0])) {
+                            return neighborhood;
+                        }
+                    } else if (geom.type === 'MultiPolygon') {
+                        // Check all polygons
+                        for (const poly of geom.coordinates) {
+                            if (pointInPolygon(point, poly[0])) {
+                                return neighborhood;
+                            }
+                        }
+                    }
+                }
+
+                return null;
+            }
+
+            // Find nearest neighborhood by center point (fallback)
+            function findNearestNeighborhood(lat, lon) {
+                let closestNeighborhood = null;
+                let closestDistance = Infinity;
+
+                for (const neighborhood of neighborhoodProfiles) {
+                    if (!neighborhood.location || neighborhood.location.length < 2) {
+                        continue;
+                    }
+
+                    if (neighborhood.location[0] == null || neighborhood.location[1] == null) {
+                        continue;
+                    }
+
+                    const distance = calculateDistance(lat, lon, neighborhood.location[0], neighborhood.location[1]);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestNeighborhood = neighborhood;
+                    }
+                }
+
+                return closestNeighborhood;
+            }
+
+            // Main function to find neighborhood - tries boundary first, then center point
+            function findNeighborhood(lat, lon) {
+                // First try boundary-based matching (most accurate)
+                let neighborhood = findNeighborhoodByBoundary(lat, lon);
+
+                if (neighborhood) {
+                    console.log(`Found neighborhood by boundary: ${neighborhood.name}`);
+                    return neighborhood;
+                }
+
+                // Fallback to nearest center point
+                neighborhood = findNearestNeighborhood(lat, lon);
+
+                if (neighborhood) {
+                    console.log(`Found neighborhood by nearest center: ${neighborhood.name}`);
+                }
+
+                return neighborhood;
+            }
+            
+            function formatDistance(distance) {
+                return distance < 1 ? `${Math.round(distance * 1000)} m` : `${distance.toFixed(1)} km`;
+            }
+            
+            // Create childcare center item
+            function createChildcareItem(center, distance, index) {
+                const wrapper = document.createElement('div');
+                const isMobile = window.innerWidth < 768;
+                wrapper.className = 'stat-card-visual';
+                wrapper.style.cssText = `background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(251, 247, 239, 0.95) 100%); border-left: 5px solid #8b7355; padding: ${isMobile ? '1rem' : '1.5rem'}; margin-bottom: ${isMobile ? '0.75rem' : '1rem'}; display: flex; justify-content: space-between; align-items: center; gap: ${isMobile ? '0.75rem' : '1.5rem'}; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);`;
+                wrapper.onmouseover = function() {
+                    this.style.transform = 'translateX(8px) translateY(-2px)';
+                    this.style.boxShadow = '0 12px 32px rgba(139, 115, 85, 0.25)';
+                };
+                wrapper.onmouseout = function() {
+                    this.style.transform = 'translateX(0) translateY(0)';
+                    this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                };
+
+                // Left side: Center info
+                const infoDiv = document.createElement('div');
+                infoDiv.style.cssText = 'flex: 1; min-width: 0;';
+
+                const titleDiv = document.createElement('div');
+                titleDiv.style.cssText = `font-weight: 800; font-size: ${isMobile ? '1rem' : '1.125rem'}; background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: ${isMobile ? '0.25rem' : '0.5rem'}; line-height: 1.3; word-break: break-word;`;
+                titleDiv.textContent = center.name;
+
+                const addressDiv = document.createElement('div');
+                addressDiv.style.cssText = `font-size: ${isMobile ? '0.75rem' : '0.875rem'}; color: #6b7280; margin-bottom: ${isMobile ? '0.5rem' : '0.75rem'}; line-height: 1.4; display: flex; align-items: center; gap: 0.5rem;`;
+                addressDiv.innerHTML = `<i class="fas fa-map-marker-alt" style="color: #8b7355;"></i><span>${center.address}</span>`;
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.style.cssText = `font-size: 0.875rem; color: #666; display: flex; align-items: center; gap: ${isMobile ? '0.5rem' : '0.75rem'}; flex-wrap: wrap;`;
+
+                const distanceBadge = document.createElement('span');
+                distanceBadge.className = 'distance-display';
+                distanceBadge.style.cssText = `display: inline-flex; align-items: center; gap: 0.375rem; padding: ${isMobile ? '0.375rem 0.75rem' : '0.5rem 1rem'}; background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(107, 93, 79, 0.15) 100%); color: #8b7355; border-radius: 12px; font-weight: 700; font-size: ${isMobile ? '0.75rem' : '0.875rem'}; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.2);`;
+                distanceBadge.innerHTML = `<i class="fas fa-route"></i> <span class="distance-text">${formatDistance(distance)}</span>`;
+
+                const ageGroupsText = center.ageGroups && center.ageGroups.length > 0 ? center.ageGroups.join(', ') : 'Ages not specified';
+                const ageGroupsSpan = document.createElement('span');
+                ageGroupsSpan.style.cssText = `display: inline-flex; align-items: center; gap: 0.375rem; padding: ${isMobile ? '0.375rem 0.75rem' : '0.5rem 1rem'}; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; font-size: ${isMobile ? '0.75rem' : '0.875rem'}; font-weight: 700; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);`;
+                ageGroupsSpan.innerHTML = `<i class="fas fa-child"></i> ${ageGroupsText}`;
+
+                const capacitySpan = document.createElement('span');
+                capacitySpan.style.cssText = `display: inline-flex; align-items: center; gap: 0.375rem; padding: ${isMobile ? '0.375rem 0.75rem' : '0.5rem 1rem'}; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border-radius: 12px; font-size: ${isMobile ? '0.75rem' : '0.875rem'}; font-weight: 700; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);`;
+                capacitySpan.innerHTML = `<i class="fas fa-users"></i> ${center.capacity}`;
+
+                detailsDiv.appendChild(distanceBadge);
+                detailsDiv.appendChild(ageGroupsSpan);
+                detailsDiv.appendChild(capacitySpan);
+
+                // Add phone badge if available
+                if (center.phone) {
+                    console.log('Adding phone for:', center.name, center.phone);
+                    const phoneSpan = document.createElement('a');
+                    phoneSpan.href = `tel:${center.phone}`;
+                    phoneSpan.style.cssText = `display: inline-flex !important; align-items: center; gap: 0.25rem; padding: ${isMobile ? '0.15rem 0.5rem' : '0.25rem 0.75rem'}; background: rgba(245, 158, 11, 0.1); color: #d97706; border-radius: 6px; font-size: ${isMobile ? '0.7rem' : '0.875rem'}; text-decoration: none; font-weight: 600;`;
+                    phoneSpan.innerHTML = `<i class="fas fa-phone"></i> ${center.phone}`;
+                    detailsDiv.appendChild(phoneSpan);
+                } else {
+                    console.log('No phone for:', center.name);
+                }
+
+                infoDiv.appendChild(titleDiv);
+                infoDiv.appendChild(addressDiv);
+                infoDiv.appendChild(detailsDiv);
+
+                // Right side: Map button
+                const mapBtn = document.createElement('a');
+                const mapQuery = encodeURIComponent(`${center.name} ${center.address}`);
+                mapBtn.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+                mapBtn.target = '_blank';
+                mapBtn.rel = 'noopener noreferrer';
+                mapBtn.style.cssText = `padding: ${isMobile ? '0.4rem 0.8rem' : '0.75rem 1.5rem'}; background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%); color: white; border-radius: 8px; font-size: ${isMobile ? '0.75rem' : '0.875rem'}; text-decoration: none; white-space: nowrap; font-weight: 600; flex-shrink: 0; display: flex; align-items: center; gap: 0.3rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(139, 115, 85, 0.2);`;
+                mapBtn.innerHTML = `<i class="fas fa-map"></i> ${isMobile ? '' : '<span>Map</span>'}`;
+                mapBtn.onmouseover = function() {
+                    this.style.transform = 'translateX(4px)';
+                    this.style.boxShadow = '0 6px 16px rgba(102, 126, 234, 0.4)';
+                };
+                mapBtn.onmouseout = function() {
+                    this.style.transform = 'translateX(0)';
+                    this.style.boxShadow = '0 4px 12px rgba(139, 115, 85, 0.2)';
+                };
+
+                wrapper.appendChild(infoDiv);
+                wrapper.appendChild(mapBtn);
+
+                return wrapper;
+            }
+
+            // Create school item
+            function createSchoolItem(school, distance, index) {
+                const wrapper = document.createElement('div');
+                const isMobile = window.innerWidth < 768;
+                wrapper.className = 'stat-card-visual';
+                wrapper.style.cssText = `background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(251, 247, 239, 0.95) 100%); border-left: 5px solid #8b7355; padding: ${isMobile ? '1rem' : '1.5rem'}; margin-bottom: ${isMobile ? '0.75rem' : '1rem'}; display: flex; justify-content: space-between; align-items: center; gap: ${isMobile ? '0.75rem' : '1.5rem'}; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);`;
+                wrapper.onmouseover = function() {
+                    this.style.transform = 'translateX(8px) translateY(-2px)';
+                    this.style.boxShadow = '0 12px 32px rgba(139, 115, 85, 0.25)';
+                };
+                wrapper.onmouseout = function() {
+                    this.style.transform = 'translateX(0) translateY(0)';
+                    this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                };
+
+                // Left side: School info
+                const infoDiv = document.createElement('div');
+                infoDiv.style.cssText = 'flex: 1; min-width: 0;';
+
+                const titleDiv = document.createElement('div');
+                titleDiv.style.cssText = `font-weight: 800; font-size: ${isMobile ? '1rem' : '1.125rem'}; background: linear-gradient(135deg, #8b7355 0%, #6b5d4f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: ${isMobile ? '0.25rem' : '0.5rem'}; line-height: 1.3; word-break: break-word;`;
+                titleDiv.textContent = school.name;
+
+                const addressDiv = document.createElement('div');
+                addressDiv.style.cssText = `font-size: ${isMobile ? '0.75rem' : '0.875rem'}; color: #6b7280; margin-bottom: ${isMobile ? '0.5rem' : '0.75rem'}; line-height: 1.4; display: flex; align-items: center; gap: 0.5rem;`;
+                const postalCode = school.postalCode ? ` ${school.postalCode}` : '';
+                addressDiv.innerHTML = `<i class="fas fa-map-marker-alt" style="color: #8b7355;"></i><span>${school.address}, Toronto, ON${postalCode}</span>`;
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.style.cssText = `font-size: 0.875rem; color: #666; display: flex; align-items: center; gap: ${isMobile ? '0.5rem' : '0.75rem'}; flex-wrap: wrap;`;
+
+                const distanceBadge = document.createElement('span');
+                distanceBadge.className = 'distance-display';
+                distanceBadge.style.cssText = `display: inline-flex; align-items: center; gap: 0.375rem; padding: ${isMobile ? '0.375rem 0.75rem' : '0.5rem 1rem'}; background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(107, 93, 79, 0.15) 100%); color: #8b7355; border-radius: 12px; font-weight: 700; font-size: ${isMobile ? '0.75rem' : '0.875rem'}; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.2);`;
+                distanceBadge.innerHTML = `<i class="fas fa-route"></i> <span class="distance-text">${formatDistance(distance)}</span>`;
+
+                const gradesSpan = document.createElement('span');
+                gradesSpan.style.cssText = `display: inline-flex; align-items: center; gap: 0.375rem; padding: ${isMobile ? '0.375rem 0.75rem' : '0.5rem 1rem'}; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; font-size: ${isMobile ? '0.75rem' : '0.875rem'}; font-weight: 700; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);`;
+                gradesSpan.innerHTML = `<i class="fas fa-graduation-cap"></i> ${school.grades}`;
+
+                detailsDiv.appendChild(distanceBadge);
+                detailsDiv.appendChild(gradesSpan);
+
+                infoDiv.appendChild(titleDiv);
+                infoDiv.appendChild(addressDiv);
+                infoDiv.appendChild(detailsDiv);
+
+                // Right side: Map button
+                const mapBtn = document.createElement('a');
+                const postalCodeForMap = school.postalCode ? ` ${school.postalCode}` : '';
+                const mapQuery = encodeURIComponent(`${school.name} ${school.address}, Toronto, ON${postalCodeForMap}`);
+                mapBtn.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+                mapBtn.target = '_blank';
+                mapBtn.rel = 'noopener noreferrer';
+                mapBtn.style.cssText = `padding: ${isMobile ? '0.75rem 1rem' : '1rem 1.5rem'}; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border-radius: 16px; font-size: ${isMobile ? '0.875rem' : '1rem'}; text-decoration: none; white-space: nowrap; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);`;
+                mapBtn.innerHTML = `<i class="fas fa-map-location-dot"></i>${isMobile ? '' : '<span>View Map</span>'}`;
+                mapBtn.onmouseover = function() {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                    this.style.boxShadow = '0 8px 24px rgba(16, 185, 129, 0.5)';
+                };
+                mapBtn.onmouseout = function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 4px 16px rgba(16, 185, 129, 0.3)';
+                };
+
+                wrapper.appendChild(infoDiv);
+                wrapper.appendChild(mapBtn);
+
+                return wrapper;
+            }
+
+            // Add markers to map
+
+            // Display neighborhood profile
+            function displayNeighborhoodProfile(neighborhood) {
+                console.log('Displaying profile for:', neighborhood.name);
+                console.log('Full neighborhood data:', neighborhood);
+
+                // Update page title
+                document.title = neighborhood.name;
+                console.log('Page title updated to:', document.title);
+
+                // Hide the no location message and show the main content
+                const noLocationMsg = document.getElementById('no-location-message');
+                noLocationMsg.style.display = 'none';
+                noLocationMsg.style.visibility = 'hidden';
+
+                const mainContent = document.getElementById('main-content');
+                mainContent.classList.remove('hidden');
+                mainContent.style.display = 'block';
+                mainContent.style.visibility = 'visible';
+                mainContent.style.opacity = '1';
+
+                // Force browser reflow
+                void mainContent.offsetHeight;
+
+                console.log('main-content visibility forced:', {
+                    display: mainContent.style.display,
+                    visibility: mainContent.style.visibility,
+                    classList: Array.from(mainContent.classList)
+                });
+
+                // Force update the neighborhood name with direct property access
+                const neighborhoodElement = document.getElementById('neighborhood');
+                neighborhoodElement.textContent = '';
+                neighborhoodElement.textContent = neighborhood.name;
+
+                // Update Google Maps button with neighborhood center coordinates
+                const googleMapsBtn = document.getElementById('googleMapsBtn');
+                if (neighborhood.location && neighborhood.location.length === 2) {
+                    const lat = neighborhood.location[0];
+                    const lng = neighborhood.location[1];
+                    googleMapsBtn.href = `https://www.google.com/maps/@${lat},${lng},15z`;
+                } else {
+                    // Fallback to search if no coordinates
+                    const mapsQuery = encodeURIComponent(`${neighborhood.name}, Toronto, ON, Canada`);
+                    googleMapsBtn.href = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+                }
+
+                // Update population display
+                const populationEl = document.getElementById('population');
+                if (populationEl) {
+                    populationEl.textContent = neighborhood.population.toLocaleString();
+                }
+
+                // Store chart instances for cleanup
+                window.neighborhoodCharts = window.neighborhoodCharts || {};
+
+                // Helper function to destroy existing chart
+                function destroyChart(chartId) {
+                    if (window.neighborhoodCharts[chartId]) {
+                        window.neighborhoodCharts[chartId].destroy();
+                        delete window.neighborhoodCharts[chartId];
+                    }
+                }
+
+                // Create circular progress chart (doughnut)
+                function createProgressChart(canvasId, value, label, color) {
+                    try {
+                        if (typeof Chart === 'undefined') {
+                            console.error('Chart.js not loaded yet');
+                            return;
+                        }
+                        destroyChart(canvasId);
+                        const ctx = document.getElementById(canvasId);
+                        if (!ctx) return;
+
+                    const percentage = parseFloat(value.toString().replace('%', ''));
+
+                    window.neighborhoodCharts[canvasId] = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [percentage, 100 - percentage],
+                                backgroundColor: [color, 'rgba(209, 213, 219, 0.2)'],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            cutout: '75%',
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { enabled: false }
+                            },
+                            animation: {
+                                animateRotate: true,
+                                animateScale: true,
+                                duration: 1000
+                            }
+                        },
+                        plugins: [{
+                            id: 'centerText',
+                            beforeDraw: function(chart) {
+                                const ctx = chart.ctx;
+                                const centerX = chart.chartArea.left + (chart.chartArea.right - chart.chartArea.left) / 2;
+                                const centerY = chart.chartArea.top + (chart.chartArea.bottom - chart.chartArea.top) / 2;
+
+                                ctx.save();
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                ctx.font = 'bold 14px Inter';
+                                ctx.fillStyle = color;
+                                ctx.fillText(value, centerX, centerY);
+                                ctx.restore();
+                            }
+                        }]
+                    });
+                    } catch (error) {
+                        console.error('Error creating progress chart:', canvasId, error);
+                    }
+                }
+
+                // Create gauge chart
+                function createGaugeChart(canvasId, value, maxValue, color) {
+                    try {
+                        if (typeof Chart === 'undefined') {
+                            console.error('Chart.js not loaded yet');
+                            return;
+                        }
+                        destroyChart(canvasId);
+                        const ctx = document.getElementById(canvasId);
+                        if (!ctx) return;
+
+                    const numValue = typeof value === 'number' ? value : parseFloat(value.toString().replace(/[$,]/g, ''));
+                    const percentage = (numValue / maxValue) * 100;
+
+                    window.neighborhoodCharts[canvasId] = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [percentage, 100 - percentage],
+                                backgroundColor: [color, 'rgba(209, 213, 219, 0.2)'],
+                                borderWidth: 0,
+                                circumference: 180,
+                                rotation: 270
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            cutout: '70%',
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { enabled: false }
+                            },
+                            animation: {
+                                animateRotate: true,
+                                duration: 1000
+                            }
+                        }
+                    });
+                    } catch (error) {
+                        console.error('Error creating gauge chart:', canvasId, error);
+                    }
+                }
+
+                // Create growth indicator chart
+                function createGrowthChart(canvasId, growthValue) {
+                    try {
+                        if (typeof Chart === 'undefined') {
+                            console.error('Chart.js not loaded yet');
+                            return;
+                        }
+                        destroyChart(canvasId);
+                        const ctx = document.getElementById(canvasId);
+                        if (!ctx) return;
+
+                    const growth = parseFloat(growthValue);
+                    const color = growth > 0 ? '#10b981' : growth < 0 ? '#ef4444' : '#6b7280';
+                    const absGrowth = Math.abs(growth);
+
+                    // For negative growth, we'll make the chart rotate counter-clockwise
+                    const rotation = growth < 0 ? 270 : 270; // Start from top
+                    const circumference = growth < 0 ? -360 : 360; // Negative = counter-clockwise
+
+                    window.neighborhoodCharts[canvasId] = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [absGrowth, Math.max(20 - absGrowth, 0)],
+                                backgroundColor: [color, 'rgba(209, 213, 219, 0.2)'],
+                                borderWidth: 0,
+                                circumference: circumference,
+                                rotation: rotation
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            cutout: '70%',
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { enabled: false }
+                            },
+                            animation: {
+                                animateRotate: true,
+                                duration: 1000
+                            }
+                        },
+                        plugins: [{
+                            id: 'centerText',
+                            beforeDraw: function(chart) {
+                                const ctx = chart.ctx;
+                                const centerX = chart.chartArea.left + (chart.chartArea.right - chart.chartArea.left) / 2;
+                                const centerY = chart.chartArea.top + (chart.chartArea.bottom - chart.chartArea.top) / 2;
+
+                                ctx.save();
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                ctx.font = 'bold 12px Inter';
+                                ctx.fillStyle = color;
+                                const arrow = growth > 0 ? '↑' : growth < 0 ? '↓' : '→';
+                                ctx.fillText(arrow, centerX, centerY);
+                                ctx.restore();
+                            }
+                        }]
+                    });
+                    } catch (error) {
+                        console.error('Error creating growth chart:', canvasId, error);
+                    }
+                }
+
+                // Create languages donut chart - more inclusive visualization
+                function createLanguagesChart(languages) {
+                    try {
+                        if (typeof Chart === 'undefined') {
+                            console.error('Chart.js not loaded yet');
+                            return;
+                        }
+                        destroyChart('languagesChart');
+                        const ctx = document.getElementById('languagesChart');
+                        if (!ctx) return;
+
+                    const languagesToShow = languages.slice(0, 8);
+                    const labels = languagesToShow.map(lang => typeof lang === 'string' ? lang : lang.name);
+                    const data = languagesToShow.map(lang => {
+                        if (typeof lang === 'string') return 0;
+                        return parseFloat(lang.percent.toString().replace('%', ''));
+                    });
+
+                    // Inclusive color palette - each language gets its own distinct color
+                    const colors = [
+                        '#8b7355', // English - warm brown (primary)
+                        '#e63946', // Punjabi - vibrant red
+                        '#f77f00', // Gujarati - orange
+                        '#06aedb', // Italian - bright blue
+                        '#457b9d', // Tagalog - ocean blue
+                        '#2a9d8f', // Spanish - teal
+                        '#e9c46a', // Hindi - golden yellow
+                        '#9d4edd'  // Others - purple
+                    ];
+
+                    window.neighborhoodCharts['languagesChart'] = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: data,
+                                backgroundColor: colors.slice(0, data.length),
+                                borderColor: '#ffffff',
+                                borderWidth: 2,
+                                hoverOffset: 8
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'right',
+                                    labels: {
+                                        padding: 12,
+                                        font: {
+                                            size: 11,
+                                            weight: '600'
+                                        },
+                                        generateLabels: function(chart) {
+                                            const data = chart.data;
+                                            return data.labels.map((label, i) => {
+                                                const value = data.datasets[0].data[i];
+                                                return {
+                                                    text: `${label} (${value}%)`,
+                                                    fillStyle: data.datasets[0].backgroundColor[i],
+                                                    hidden: false,
+                                                    index: i
+                                                };
+                                            });
+                                        }
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            const label = context.label || '';
+                                            const value = context.parsed || 0;
+                                            return `${label}: ${value.toFixed(1)}%`;
+                                        }
+                                    }
+                                }
+                            },
+                            animation: {
+                                duration: 1200,
+                                easing: 'easeOutQuart'
+                            }
+                        }
+                    });
+                    } catch (error) {
+                        console.error('Error creating languages chart:', error);
+                    }
+                }
+
+                // Helper function to color-code values
+                function colorCodeValue(element, value, metric) {
+                    const valueNum = parseFloat(value.toString().replace('%', '').replace('$', '').replace(',', ''));
+                    let color = '#6b7280'; // default gray
+
+                    // Define ranges based on metric type (lower is better for some, higher for others)
+                    const ranges = {
+                        children: { low: 10, high: 18, betterHigh: true }, // Higher % children often preferred
+                        income: { low: 70000, high: 110000, betterHigh: true },
+                        household: { low: 2.2, high: 2.8, betterHigh: true }, // Larger households
+                        rentals: { low: 35, high: 55, betterHigh: false }, // Lower rentals = more owners
+                        unemployment: { low: 11, high: 15, betterHigh: false } // Lower is better
+                    };
+
+                    const range = ranges[metric];
+                    if (range) {
+                        if (range.betterHigh) {
+                            // Higher is better (green for high, red for low)
+                            if (valueNum >= range.high) color = '#10b981'; // green
+                            else if (valueNum <= range.low) color = '#ef4444'; // red
+                            else color = '#f59e0b'; // amber
+                        } else {
+                            // Lower is better (green for low, red for high)
+                            if (valueNum <= range.low) color = '#10b981'; // green
+                            else if (valueNum >= range.high) color = '#ef4444'; // red
+                            else color = '#f59e0b'; // amber
+                        }
+                    }
+
+                    element.style.color = color;
+                    element.textContent = value;
+                }
+
+                // Update text values for growth, income, and household - wrapped in try-catch
+                try {
+                    const growth5yrText = document.getElementById('growth5yr-text');
+                    const incomeText = document.getElementById('income-text');
+                    const householdText = document.getElementById('household-text');
+
+                    // 5 Year Growth - text only
+                    if (neighborhood.growth5yr !== undefined) {
+                        const growth = neighborhood.growth5yr;
+                        if (growth5yrText) {
+                            growth5yrText.textContent = (growth > 0 ? '+' : '') + growth + '%';
+                            growth5yrText.style.color = growth > 0 ? '#10b981' : growth < 0 ? '#ef4444' : '#6b7280';
+                        }
+                    } else {
+                        if (growth5yrText) {
+                            growth5yrText.textContent = 'N/A';
+                            growth5yrText.style.color = '#6b7280';
+                        }
+                    }
+
+                    // Median Income - text only
+                    if (incomeText) {
+                        incomeText.textContent = neighborhood.medianIncome;
+                    }
+
+                    // Household Size - text only
+                    if (householdText) {
+                        householdText.textContent = neighborhood.householdSize;
+                    }
+
+                    // Create circular progress charts for percentage metrics with delays
+                    setTimeout(() => createProgressChart('childrenChart', neighborhood.children, 'Children', '#8b7355'), 150);
+                    setTimeout(() => createProgressChart('rentalsChart', neighborhood.rentals, 'Rentals', '#f97316'), 200);
+                    setTimeout(() => createProgressChart('unemploymentChart', neighborhood.unemployment, 'Unemployment', '#ef4444'), 250);
+                    setTimeout(() => createProgressChart('transitChart', neighborhood.transitUse, 'Transit', '#8b7355'), 300);
+                    setTimeout(() => createProgressChart('immigrantChart', neighborhood.immigrantPopulation, 'Immigrants', '#8b7355'), 350);
+
+                    // Display languages as donut chart with delay
+                    if (neighborhood.languages && neighborhood.languages.length > 0) {
+                        setTimeout(() => createLanguagesChart(neighborhood.languages), 450);
+                    }
+                } catch (error) {
+                    console.error('Error rendering charts:', error);
+                }
+            }
+
+            // Lazy loading list with scroll-based loading (shows 3 at a time)
+            function setupLazyLoadedList(container, items, createItemFn) {
+                // Clear existing content
+                container.innerHTML = '';
+
+                if (items.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No items found nearby.</p>';
+                    return;
+                }
+
+                // Set scroll container height based on total items to make scrollbar proportional
+                const scrollWrapper = container.parentElement;
+                const itemHeight = 180; // Approximate height of each card
+                const maxVisibleItems = 3;
+                const totalHeight = items.length * itemHeight;
+                const visibleHeight = maxVisibleItems * itemHeight;
+
+                // Set max-height to show relationship between visible and total content
+                if (scrollWrapper) {
+                    scrollWrapper.style.maxHeight = Math.min(visibleHeight, totalHeight) + 'px';
+                }
+
+                let currentIndex = 0;
+                const batchSize = 3; // Load 3 items at a time
+                let isLoading = false;
+
+                function loadNextBatch() {
+                    if (isLoading || currentIndex >= items.length) return;
+
+                    isLoading = true;
+                    const endIndex = Math.min(currentIndex + batchSize, items.length);
+
+                    // Create and append items in this batch
+                    for (let i = currentIndex; i < endIndex; i++) {
+                        try {
+                            const item = createItemFn(items[i], i);
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(10px)';
+                            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            container.appendChild(item);
+
+                            // Trigger animation after a brief delay
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, (i - currentIndex) * 50); // Stagger animations
+                        } catch (err) {
+                            console.error('Error creating item:', err, items[i]);
+                        }
+                    }
+
+                    currentIndex = endIndex;
+
+                    // Add sentinel for loading more
+                    if (currentIndex < items.length) {
+                        const sentinel = document.createElement('div');
+                        sentinel.className = 'lazy-load-sentinel';
+                        sentinel.style.cssText = 'height: 20px; margin: 1rem 0;';
+                        container.appendChild(sentinel);
+
+                        // Observe the sentinel
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    observer.disconnect();
+                                    sentinel.remove();
+                                    setTimeout(() => {
+                                        isLoading = false;
+                                        loadNextBatch();
+                                    }, 100); // Small delay for smooth loading
+                                }
+                            });
+                        }, {
+                            root: container.parentElement,
+                            rootMargin: '100px', // Start loading 100px before sentinel comes into view
+                            threshold: 0
+                        });
+
+                        observer.observe(sentinel);
+                    } else {
+                        // All items loaded - add a "that's all" indicator
+                        const endIndicator = document.createElement('div');
+                        endIndicator.style.cssText = 'text-align: center; color: #999; padding: 1rem; font-size: 0.875rem; font-weight: 500;';
+                        endIndicator.textContent = `All ${items.length} items shown`;
+                        container.appendChild(endIndicator);
+                    }
+
+                    isLoading = false;
+                }
+
+                // Load first batch
+                loadNextBatch();
+            }
+
+            // Update results based on current location/neighborhood
+            function updateResults() {
+                try {
+                    if (isUpdatingResults) {
+                        console.log('updateResults already running, skipping...');
+                        return;
+                    }
+                    isUpdatingResults = true;
+
+                    // Mark that a location search has been performed
+                    locationSearched = true;
+
+                    console.log('updateResults called');
+                    console.log('currentLocation:', currentLocation);
+                    console.log('currentNeighborhood:', currentNeighborhood ? currentNeighborhood.name : 'null');
+
+                    const childcareContainer = document.getElementById('childcare-container');
+                    const schoolsContainer = document.getElementById('schools-container');
+
+                    if (!childcareContainer || !schoolsContainer) {
+                        console.error('Containers not found!');
+                        return;
+                    }
+
+                    // Clear existing cards
+                    childcareContainer.innerHTML = '';
+                    schoolsContainer.innerHTML = '';
+
+                    // Force containers to be visible
+                    childcareContainer.style.display = 'block';
+                    childcareContainer.style.visibility = 'visible';
+                    childcareContainer.style.opacity = '1';
+                    schoolsContainer.style.display = 'block';
+                    schoolsContainer.style.visibility = 'visible';
+                    schoolsContainer.style.opacity = '1';
+
+                    if (!currentLocation && !currentNeighborhood) {
+                        console.log('No location or neighborhood set, returning');
+                        return;
+                    }
+
+                    const location = currentLocation || currentNeighborhood.location;
+                    console.log('Using location for filtering:', location);
+                    const radius = 5; // Fixed 5km radius
+                    console.log('Filtering with radius:', radius, 'km');
+                    console.log('Current neighborhood ID for filtering:', currentNeighborhood ? currentNeighborhood.id : 'none');
+
+                    // Check if data arrays are loaded
+                    try {
+                        if (typeof childcareData === 'undefined' || typeof schools === 'undefined' || !childcareData || !schools) {
+                            console.warn('Data arrays not ready, waiting...');
+                            console.warn('childcareData:', typeof childcareData);
+                            console.warn('schools:', typeof schools);
+
+                            // Retry up to 10 times with increasing delays
+                            const retryCount = window._updateResultsRetryCount || 0;
+                            if (retryCount < 10) {
+                                window._updateResultsRetryCount = retryCount + 1;
+                                const delay = 200 * (retryCount + 1); // Increasing delay: 200ms, 400ms, 600ms...
+                                console.log(`Retry ${retryCount + 1}/10 in ${delay}ms...`);
+                                setTimeout(() => {
+                                    updateResults();
+                                }, delay);
+                            } else {
+                                // Give up after 10 retries
+                                window._updateResultsRetryCount = 0;
+                                alert('Unable to load neighborhood data. Please refresh the page.');
+                            }
+                            return;
+                        }
+                        // Reset retry counter on success
+                        window._updateResultsRetryCount = 0;
+                    } catch (e) {
+                        console.error('Error accessing data in updateResults:', e.message);
+                        alert('Error loading data. Please refresh the page.');
+                        return;
+                    }
+
+                    console.log('Total childcare centers:', childcareData.length);
+                    console.log('Total schools:', schools.length);
+
+                    // Filter and sort childcare centers - optimize by calculating distance only once
+                    console.log('Starting childcare filtering...');
+                    let filteredChildcare = childcareData
+                        .map(center => ({
+                            ...center,
+                            distance: calculateDistance(location[0], location[1], center.location[0], center.location[1])
+                        }))
+                        .filter(center => {
+                            return currentNeighborhood
+                                ? (center.neighborhood === currentNeighborhood.id || center.distance <= radius)
+                                : center.distance <= radius;
+                        })
+                        .sort((a, b) => a.distance - b.distance);
+
+                    console.log('Filtered childcare count:', filteredChildcare.length);
+
+                    // Limit to top 50 results for performance
+                    filteredChildcare = filteredChildcare.slice(0, 50);
+
+                    // Add childcare center items with lazy loading
+                    console.log('Adding childcare items with lazy loading...');
+                    setupLazyLoadedList(childcareContainer, filteredChildcare, (center, index) => {
+                        const item = createChildcareItem(center, center.distance, index);
+                        // Asynchronously fetch accurate walking distance
+                        calculateWalkingDistance(location[0], location[1], center.location[0], center.location[1])
+                            .then(accurateDistance => {
+                                const distanceText = item.querySelector('.distance-text');
+                                if (distanceText) {
+                                    distanceText.textContent = formatDistance(accurateDistance);
+                                    const distanceDisplay = item.querySelector('.distance-display');
+                                    if (distanceDisplay) {
+                                        distanceDisplay.title = 'Walking distance via streets';
+                                    }
+                                }
+                            })
+                            .catch(err => console.log('Walking distance error:', err));
+                        return item;
+                    });
+
+                    // Update childcare count badge
+                    const childcareCountBadge = document.getElementById('childcare-count-badge');
+                    if (childcareCountBadge) {
+                        childcareCountBadge.textContent = '(' + filteredChildcare.length + ' within 5 km)';
+                    }
+
+                    console.log('Childcare lazy loading configured');
+
+                    // Filter and sort schools - optimize by calculating distance only once
+                    console.log('Starting schools filtering...');
+                    let filteredSchools = schools
+                        .map(school => ({
+                            ...school,
+                            distance: calculateDistance(location[0], location[1], school.location[0], school.location[1])
+                        }))
+                        .filter(school => {
+                            return currentNeighborhood
+                                ? (school.neighborhood === currentNeighborhood.id || school.distance <= radius)
+                                : school.distance <= radius;
+                        })
+                        .sort((a, b) => a.distance - b.distance);
+
+                    console.log('Filtered schools count:', filteredSchools.length);
+
+                    // Limit to top 50 results for performance
+                    filteredSchools = filteredSchools.slice(0, 50);
+
+                    // Add school items with lazy loading
+                    console.log('Adding school items with lazy loading...');
+                    setupLazyLoadedList(schoolsContainer, filteredSchools, (school, index) => {
+                        const item = createSchoolItem(school, school.distance, index);
+                        // Asynchronously fetch accurate walking distance
+                        calculateWalkingDistance(location[0], location[1], school.location[0], school.location[1])
+                            .then(accurateDistance => {
+                                const distanceText = item.querySelector('.distance-text');
+                                if (distanceText) {
+                                    distanceText.textContent = formatDistance(accurateDistance);
+                                    const distanceDisplay = item.querySelector('.distance-display');
+                                    if (distanceDisplay) {
+                                        distanceDisplay.title = 'Walking distance via streets';
+                                    }
+                                }
+                            })
+                            .catch(err => console.log('Walking distance error:', err));
+                        return item;
+                    });
+
+                    // Update schools count badge
+                    const schoolsCountBadge = document.getElementById('schools-count-badge');
+                    if (schoolsCountBadge) {
+                        schoolsCountBadge.textContent = '(' + filteredSchools.length + ' within 5 km)';
+                    }
+
+                    console.log('Schools lazy loading configured');
+                    console.log('updateResults completed successfully');
+                } catch (error) {
+                    console.error('Error in updateResults:', error);
+                    alert('An error occurred while loading results. Please try again.');
+                } finally {
+                    isUpdatingResults = false;
+                }
+            }
+            
+            // Levenshtein distance for fuzzy string matching
+            function levenshteinDistance(str1, str2) {
+                const m = str1.length;
+                const n = str2.length;
+                const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+
+                for (let i = 0; i <= m; i++) dp[i][0] = i;
+                for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+                for (let i = 1; i <= m; i++) {
+                    for (let j = 1; j <= n; j++) {
+                        if (str1[i - 1] === str2[j - 1]) {
+                            dp[i][j] = dp[i - 1][j - 1];
+                        } else {
+                            dp[i][j] = Math.min(
+                                dp[i - 1][j] + 1,
+                                dp[i][j - 1] + 1,
+                                dp[i - 1][j - 1] + 1
+                            );
+                        }
+                    }
+                }
+                return dp[m][n];
+            }
+
+            // Common Toronto street names and words for spell correction
+            const commonWords = [
+                'university', 'street', 'avenue', 'road', 'drive', 'blvd', 'boulevard',
+                'lane', 'way', 'court', 'place', 'circle', 'terrace', 'crescent',
+                'yonge', 'dundas', 'queen', 'king', 'bloor', 'college', 'spadina',
+                'bathurst', 'victoria', 'parliament', 'jarvis', 'church', 'bay', 'front',
+                'toronto', 'ontario', 'canada', 'north', 'south', 'east', 'west',
+                // Common abbreviations
+                'st', 'ave', 'rd', 'dr', 'crt', 'cres', 'blvd', 'ln', 'pk', 'w', 'e', 'n', 's'
+            ];
+
+            // Find closest matching word using Levenshtein distance
+            function findClosestWord(word, dictionary, maxDistance = 2) {
+                const wordLower = word.toLowerCase();
+                let closest = null;
+                let minDist = maxDistance + 1;
+
+                // For short words (3 chars or less), require closer match
+                const adjustedMaxDistance = wordLower.length <= 3 ? 1 : maxDistance;
+
+                for (const dictWord of dictionary) {
+                    const dist = levenshteinDistance(wordLower, dictWord);
+                    if (dist < minDist && dist <= adjustedMaxDistance) {
+                        minDist = dist;
+                        closest = dictWord;
+                    }
+                }
+
+                return closest;
+            }
+
+            // Auto-correct common misspellings in address
+            function correctAddress(query) {
+                const words = query.split(/\s+/);
+                const correctedWords = words.map(word => {
+                    // Skip numbers
+                    if (/^\d+$/.test(word)) {
+                        return word;
+                    }
+
+                    const wordLower = word.toLowerCase();
+
+                    // Skip if word is already in dictionary
+                    if (commonWords.includes(wordLower)) {
+                        return word;
+                    }
+
+                    // Try to find a correction - allow distance of 2 for better typo tolerance
+                    // But be more conservative with very different words
+                    const correction = findClosestWord(word, commonWords, 2);
+
+                    // Only apply correction if it seems reasonable
+                    if (correction) {
+                        const dist = levenshteinDistance(wordLower, correction);
+                        // For longer words (6+ chars), allow distance of 2
+                        // For medium words (4-5 chars), allow distance of 1
+                        // For short words (3 or less), require exact match or distance of 1
+                        if (wordLower.length >= 6 && dist <= 2) {
+                            return correction;
+                        } else if (wordLower.length >= 4 && dist <= 1) {
+                            return correction;
+                        } else if (dist <= 1) {
+                            return correction;
+                        }
+                    }
+
+                    return word;
+                });
+
+                return correctedWords.join(' ');
+            }
+
+            // Search for an address
+            async function searchAddress(query) {
+                const loader = document.getElementById('loader');
+                loader.classList.remove('hidden');
+                loader.classList.add('flex');
+
+                try {
+                    // Check if user is searching for a non-Toronto city
+                    const nonTorontoCities = ['mississauga', 'brampton', 'markham', 'vaughan', 'richmond hill', 'oakville', 'burlington', 'hamilton', 'pickering', 'ajax', 'whitby', 'oshawa', 'newmarket', 'aurora'];
+                    const queryLower = query.toLowerCase();
+                    const isNonTorontoCity = nonTorontoCities.some(city => queryLower.includes(city));
+
+                    if (isNonTorontoCity) {
+                        loader.classList.add('hidden');
+                        alert('This dashboard only displays information for Toronto addresses. Please enter a Toronto address or neighborhood.');
+                        return;
+                    }
+
+                    // Use Google Geocoding API via proxy
+                    console.log('Geocoding query:', query);
+
+                    const response = await fetch(`geocode-address.php?query=${encodeURIComponent(query)}`);
+
+                    if (!response.ok) {
+                        alert('Address not found. Please try a different search.');
+                        loader.classList.add('hidden');
+                        return;
+                    }
+
+                    const data = await response.json();
+
+                    if (data.error || !data.location) {
+                        alert('Address not found. Please try a different search.');
+                        loader.classList.add('hidden');
+                        return;
+                    }
+
+                    console.log('Geocoding result:', data);
+
+                    const lat = parseFloat(data.location.lat);
+                    const lon = parseFloat(data.location.lng);
+
+                    currentLocation = [lat, lon];
+
+                    // Find neighborhood using boundary or center point
+                    console.log('Search coordinates:', lat, lon);
+                    const closestNeighborhood = findNeighborhood(lat, lon);
+
+                    if (closestNeighborhood) {
+                        currentNeighborhood = closestNeighborhood;
+                        displayNeighborhoodProfile(closestNeighborhood);
+                        updateResults();
+                        loader.classList.add('hidden');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        alert('No neighborhood found near this location. Please try a different address.');
+                        loader.classList.add('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error searching for address:', error);
+                    alert(`Error searching for address: ${error.message}. Please try again or check your internet connection.`);
+                    loader.classList.add('hidden');
+                }
+            }
+            
+            // Get current location
+            function getCurrentLocation() {
+                if (!navigator.geolocation) {
+                    alert('Geolocation is not supported by your browser. Please try searching for an address.');
+                    return;
+                }
+
+                // Clear the search field
+                document.getElementById('search-input').value = '';
+                document.getElementById('loader').style.display = 'flex';
+
+                // Set a safety timeout in case geolocation hangs
+                const safetyTimeout = setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                    alert('Location request is taking too long. Please try searching for an address instead.');
+                }, 8000); // 8 second max wait
+
+                // Try to get location with reasonable timeout
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        clearTimeout(safetyTimeout);
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+
+                        currentLocation = [lat, lon];
+
+                        // Find neighborhood using boundary or center point
+                        console.log('User location:', lat, lon);
+                        const closestNeighborhood = findNeighborhood(lat, lon);
+
+                        if (closestNeighborhood) {
+                            currentNeighborhood = closestNeighborhood;
+                            displayNeighborhoodProfile(closestNeighborhood);
+                            updateResults();
+                            document.getElementById('loader').style.display = 'none';
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            document.getElementById('loader').style.display = 'none';
+                            alert('Could not find a neighborhood near your location. Please try searching for an address.');
+                        }
+                    },
+                    (error) => {
+                        clearTimeout(safetyTimeout);
+                        console.error('Error getting current location:', error, 'Code:', error.code);
+
+                        let errorMsg = 'Unable to get your current location. ';
+                        if (error.code === 1) {
+                            errorMsg += 'Please allow location access in your browser settings.';
+                        } else if (error.code === 2) {
+                            errorMsg += 'Location information is unavailable.';
+                        } else if (error.code === 3) {
+                            errorMsg += 'Location request timed out. Please try again or search for an address.';
+                        } else {
+                            errorMsg += 'Please try searching for an address instead.';
+                        }
+                        alert(errorMsg);
+                        document.getElementById('loader').style.display = 'none';
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 7000, // 7 second timeout
+                        maximumAge: 60000 // Accept cached location up to 1 minute old
+                    }
+                );
+            }
+
+            // Virtual Scrolling Utility
+            function createVirtualScroller(container, items, renderItem, itemHeight = 60) {
+                const totalHeight = items.length * itemHeight;
+                const containerHeight = container.clientHeight || 600;
+                const visibleCount = Math.ceil(containerHeight / itemHeight);
+                const bufferSize = Math.max(10, Math.ceil(visibleCount / 2)); // Larger buffer for smoother scrolling
+
+                let scrollTop = 0;
+                let startIndex = 0;
+                let endIndex = Math.min(items.length, visibleCount + (bufferSize * 2));
+                let ticking = false;
+
+                // Create wrapper and spacer
+                const wrapper = document.createElement('div');
+                wrapper.style.position = 'relative';
+                wrapper.style.height = `${totalHeight}px`;
+
+                const viewport = document.createElement('div');
+                viewport.style.position = 'absolute';
+                viewport.style.top = '0';
+                viewport.style.left = '0';
+                viewport.style.right = '0';
+                viewport.style.willChange = 'transform';
+
+                wrapper.appendChild(viewport);
+                container.innerHTML = '';
+                container.appendChild(wrapper);
+
+                function updateVisibleItems() {
+                    const newScrollTop = container.scrollTop;
+                    const newStartIndex = Math.max(0, Math.floor(newScrollTop / itemHeight) - bufferSize);
+                    const newEndIndex = Math.min(items.length, Math.ceil((newScrollTop + containerHeight) / itemHeight) + bufferSize);
+
+                    if (newStartIndex !== startIndex || newEndIndex !== endIndex) {
+                        startIndex = newStartIndex;
+                        endIndex = newEndIndex;
+
+                        // Use DocumentFragment for better performance
+                        const fragment = document.createDocumentFragment();
+                        viewport.style.transform = `translateY(${startIndex * itemHeight}px)`;
+
+                        for (let i = startIndex; i < endIndex; i++) {
+                            const itemEl = renderItem(items[i], i);
+                            fragment.appendChild(itemEl);
+                        }
+
+                        viewport.innerHTML = '';
+                        viewport.appendChild(fragment);
+                    }
+
+                    scrollTop = newScrollTop;
+                    ticking = false;
+                }
+
+                function requestUpdate() {
+                    if (!ticking) {
+                        requestAnimationFrame(updateVisibleItems);
+                        ticking = true;
+                    }
+                }
+
+                container.addEventListener('scroll', requestUpdate, { passive: true });
+                updateVisibleItems();
+
+                return {
+                    refresh: () => updateVisibleItems(),
+                    updateItems: (newItems) => {
+                        items = newItems;
+                        wrapper.style.height = `${newItems.length * itemHeight}px`;
+                        updateVisibleItems();
+                    }
+                };
+            }
+
+            // Autocomplete functionality
+            let autocompleteTimeout = null;
+
+            // Load cache from localStorage with 24h expiry
+            let autocompleteCache = {};
+            try {
+                const cached = localStorage.getItem('homeTurfGeocodeCache');
+                if (cached) {
+                    const { data, timestamp } = JSON.parse(cached);
+                    const age = Date.now() - timestamp;
+                    // Keep cache for 24 hours
+                    if (age < 24 * 60 * 60 * 1000) {
+                        autocompleteCache = data;
+                    } else {
+                        localStorage.removeItem('homeTurfGeocodeCache');
+                    }
+                }
+            } catch (e) {
+                console.log('Cache load error:', e);
+            }
+
+            async function fetchAddressSuggestions(query) {
+                if (query.length < 2) {
+                    hideAutocomplete();
+                    return;
+                }
+
+                console.log('Fetching suggestions for:', query);
+
+                // Check cache first
+                if (autocompleteCache[query]) {
+                    showAutocompleteSuggestions(autocompleteCache[query], query);
+                    return;
+                }
+
+                try {
+                    // Call our PHP proxy which securely calls Google Places API
+                    const url = `geocode-proxy.php?input=${encodeURIComponent(query)}`;
+
+                    console.log('Fetching URL:', url);
+                    const response = await fetch(url);
+
+                    console.log('Response status:', response.status);
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log('API returned data:', data);
+
+                        if (data.suggestions && data.suggestions.length > 0) {
+                            // New Google Places API returns suggestions array
+                            const results = data.suggestions.slice(0, 5).map(suggestion => ({
+                                display_name: suggestion.placePrediction?.text?.text || suggestion.placePrediction?.structuredFormat?.mainText?.text || '',
+                                place_id: suggestion.placePrediction?.placeId || ''
+                            }));
+
+                            // Cache the results
+                            autocompleteCache[query] = results;
+
+                            // Save to localStorage
+                            try {
+                                localStorage.setItem('homeTurfGeocodeCache', JSON.stringify({
+                                    data: autocompleteCache,
+                                    timestamp: Date.now()
+                                }));
+                            } catch (e) {
+                                console.log('Cache save error:', e);
+                            }
+
+                            showAutocompleteSuggestions(results, query);
+                        } else {
+                            console.log('No results or error:', data.error || data);
+                            hideAutocomplete();
+                        }
+                    } else {
+                        hideAutocomplete();
+                    }
+                } catch (error) {
+                    console.error('Autocomplete error:', error);
+                    hideAutocomplete();
+                }
+            }
+
+            function showAutocompleteSuggestions(data, originalQuery) {
+                const dropdown = document.getElementById('autocomplete-dropdown');
+                dropdown.innerHTML = '';
+
+                // Handle both old cache format (array) and new format (object)
+                const results = Array.isArray(data) ? data : data.results;
+                const correctedQuery = data.correctedQuery || originalQuery;
+
+                // Show correction notice if query was corrected
+                if (correctedQuery !== originalQuery && correctedQuery.toLowerCase() !== originalQuery.toLowerCase()) {
+                    const correctionNotice = document.createElement('div');
+                    correctionNotice.style.cssText = 'padding: 0.5rem 1rem; background-color: #fff3cd; border-bottom: 1px solid var(--border-color); font-size: 0.8rem; color: #856404;';
+                    correctionNotice.innerHTML = `<i class="fas fa-spell-check" style="margin-right: 0.5rem;"></i>Showing results for: <strong>${correctedQuery}</strong>`;
+                    dropdown.appendChild(correctionNotice);
+                }
+
+                results.forEach(result => {
+                    const item = document.createElement('div');
+                    item.className = 'autocomplete-item';
+
+                    // Extract clean address parts
+                    const addressParts = (result.display_name || '').split(',').map(p => p.trim());
+                    const mainAddress = addressParts.slice(0, 2).join(', ');
+                    const subAddress = addressParts.slice(2, 4).join(', ');
+
+                    item.innerHTML = `
+                        <div class="autocomplete-item-main">${mainAddress}</div>
+                        ${subAddress ? `<div class="autocomplete-item-sub">${subAddress}</div>` : ''}
+                    `;
+
+                    item.addEventListener('click', () => {
+                        selectAddress(result, mainAddress);
+                    });
+
+                    dropdown.appendChild(item);
+                });
+
+                dropdown.classList.remove('hidden');
+            }
+
+            function hideAutocomplete() {
+                const dropdown = document.getElementById('autocomplete-dropdown');
+                dropdown.classList.add('hidden');
+            }
+
+            async function selectAddress(result, displayAddress) {
+                const searchInput = document.getElementById('search-input');
+                searchInput.value = displayAddress;
+                hideAutocomplete();
+
+                // Show loader
+                document.getElementById('loader').style.display = 'flex';
+
+                // If we have place_id (Google API), we need to geocode it
+                if (result.place_id && !result.lat) {
+                    try {
+                        // Use our proxy to geocode the place_id
+                        const response = await fetch(`geocode-place.php?place_id=${encodeURIComponent(result.place_id)}`);
+                        const data = await response.json();
+
+                        if (data.location) {
+                            result.lat = data.location.lat;
+                            result.lon = data.location.lng;
+                        } else {
+                            console.error('Failed to geocode place_id:', data);
+                            alert('Failed to get location coordinates. Please try again.');
+                            document.getElementById('loader').style.display = 'none';
+                            return;
+                        }
+                    } catch (error) {
+                        console.error('Geocoding error:', error);
+                        alert('Failed to get location coordinates. Please try again.');
+                        document.getElementById('loader').style.display = 'none';
+                        return;
+                    }
+                }
+
+                const lat = parseFloat(result.lat);
+                const lon = parseFloat(result.lon);
+
+                currentLocation = [lat, lon];
+
+                // Find neighborhood using boundary or center point
+                const closestNeighborhood = findNeighborhood(lat, lon);
+
+                if (closestNeighborhood) {
+                    console.log('Autocomplete: Found neighborhood:', closestNeighborhood.name);
+                    currentNeighborhood = closestNeighborhood;
+                    displayNeighborhoodProfile(closestNeighborhood);
+                    updateResults();
+
+                    // Hide loader after everything is loaded
+                    document.getElementById('loader').style.display = 'none';
+                } else {
+                    console.log('Autocomplete: No neighborhood found near location');
+                    alert('No neighborhood found near this location. Please try a different address.');
+                    document.getElementById('loader').style.display = 'none';
+                }
+            }
+
+            // Event listeners
+            document.getElementById('search-button').addEventListener('click', () => {
+                console.log('Search button clicked');
+                const query = document.getElementById('search-input').value.trim();
+                console.log('Query:', query);
+                if (query === '') {
+                    alert('Please enter an address to search.');
+                    return;
+                }
+                console.log('Calling searchAddress');
+                searchAddress(query);
+            });
+            
+            document.getElementById('search-input').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    hideAutocomplete();
+                    const query = e.target.value.trim();
+                    if (query === '') {
+                        alert('Please enter an address to search.');
+                        return;
+                    }
+                    searchAddress(query);
+                } else if (e.key === 'Escape') {
+                    hideAutocomplete();
+                }
+            });
+
+            // Add input event for live autocomplete
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+
+                // Clear previous timeout
+                if (autocompleteTimeout) {
+                    clearTimeout(autocompleteTimeout);
+                }
+
+                // Debounce the search - wait 300ms after user stops typing
+                autocompleteTimeout = setTimeout(() => {
+                    fetchAddressSuggestions(query);
+                }, 300);
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                const searchInput = document.getElementById('search-input');
+                const dropdown = document.getElementById('autocomplete-dropdown');
+
+                if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                    hideAutocomplete();
+                }
+            });
+
+            // Initialize location button
+            document.getElementById('location-button').addEventListener('click', getCurrentLocation);
+            // Distance selector removed - using fixed 5km radius
+
+            // Language Search Functionality
+            const languageButton = document.getElementById('language-button');
+            const languageModal = document.getElementById('language-modal');
+            const closeLanguageModal = document.getElementById('close-language-modal');
+            const languageSearchInput = document.getElementById('language-search-input');
+            const languageResults = document.getElementById('language-results');
+            let languageSearchTimeout = null;
+
+            // Get all unique languages from neighborhoods
+            function getAllLanguages() {
+                const languageMap = new Map();
+
+                neighborhoodProfiles.forEach(neighborhood => {
+                    if (neighborhood.languages && neighborhood.languages.length > 0) {
+                        neighborhood.languages.forEach(lang => {
+                            const langName = lang.name;
+                            if (!languageMap.has(langName)) {
+                                languageMap.set(langName, []);
+                            }
+                            languageMap.get(langName).push({
+                                neighborhood: neighborhood.name,
+                                neighborhoodId: neighborhood.id,
+                                percent: parseFloat(lang.percent),
+                                location: neighborhood.location
+                            });
+                        });
+                    }
+                });
+
+                return languageMap;
+            }
+
+            function displayLanguageResults(searchTerm = '') {
+                const allLanguages = getAllLanguages();
+                const results = [];
+
+                allLanguages.forEach((neighborhoods, language) => {
+                    if (searchTerm === '' || language.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        // Sort neighborhoods by language percentage
+                        neighborhoods.sort((a, b) => b.percent - a.percent);
+                        results.push({ language, neighborhoods });
+                    }
+                });
+
+                // Sort by number of neighborhoods (most common language)
+                results.sort((a, b) => {
+                    return b.neighborhoods.length - a.neighborhoods.length;
+                });
+
+                languageResults.innerHTML = '';
+
+                if (results.length === 0) {
+                    languageResults.innerHTML = '<p class="text-center text-gray-500 py-8">No languages found</p>';
+                    return;
+                }
+
+                // Use virtual scrolling only on mobile for performance
+                const isMobile = window.innerWidth < 768;
+
+                if (isMobile && results.length > 10) {
+                    languageResults.style.maxHeight = '600px';
+                    languageResults.style.overflowY = 'auto';
+                    createVirtualScroller(languageResults, results, ({ language, neighborhoods }, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-gradient-to-br from-amber-50 to-stone-50 rounded-xl border-2 border-amber-200 hover:border-amber-300 transition-all overflow-hidden';
+
+                    // Create collapsible header
+                    const header = document.createElement('div');
+                    header.className = 'p-5 cursor-pointer hover:bg-amber-50 transition-colors flex items-center justify-between';
+
+                    const chevron = document.createElement('i');
+                    chevron.className = 'fas fa-chevron-right transition-transform';
+                    chevron.style.transition = 'transform 0.3s ease';
+
+                    const headerContent = document.createElement('h3');
+                    headerContent.className = 'text-lg font-bold text-stone-800 flex items-center gap-2';
+                    headerContent.appendChild(chevron);
+                    headerContent.innerHTML += `
+                        <i class="fas fa-comments"></i>
+                        ${language}
+                    `;
+
+                    const neighborhoodCount = document.createElement('span');
+                    neighborhoodCount.className = 'text-sm font-semibold text-amber-800';
+                    neighborhoodCount.textContent = `${neighborhoods.length} neighborhoods`;
+
+                    header.appendChild(headerContent);
+                    header.appendChild(neighborhoodCount);
+
+                    // Create collapsible content
+                    const content = document.createElement('div');
+                    content.className = 'hidden';
+                    content.style.maxHeight = '300px';
+                    content.style.overflowY = 'auto';
+                    content.style.padding = '0 1.25rem 1.25rem 1.25rem';
+
+                    const neighborhoodsList = neighborhoods.map(n =>
+                        `<div class="neighborhood-pill inline-flex items-center gap-2 px-3 py-2 bg-white rounded-lg text-sm hover:bg-amber-50 transition-all cursor-pointer border border-amber-200 hover:border-amber-300" data-neighborhood-id="${n.neighborhoodId}" style="box-shadow: 0 2px 4px rgba(139, 115, 85, 0.1);">
+                            <span class="font-semibold text-amber-900">${n.neighborhood}</span>
+                            <span class="text-gray-600">${n.percent}%</span>
+                        </div>`
+                    ).join('');
+
+                    content.innerHTML = `<div class="flex flex-wrap gap-2">${neighborhoodsList}</div>`;
+
+                    // Toggle collapse on header click
+                    header.addEventListener('click', () => {
+                        if (content.classList.contains('hidden')) {
+                            content.classList.remove('hidden');
+                            chevron.style.transform = 'rotate(90deg)';
+                        } else {
+                            content.classList.add('hidden');
+                            chevron.style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Add click handlers to neighborhood spans
+                    content.querySelectorAll('[data-neighborhood-id]').forEach(span => {
+                        span.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const neighborhoodId = parseInt(span.getAttribute('data-neighborhood-id'));
+                            const neighborhood = neighborhoodProfiles.find(n => n.id === neighborhoodId);
+                            if (neighborhood) {
+                                console.log('Clicked neighborhood:', neighborhood.name);
+                                const url = `${window.location.origin}${window.location.pathname}?neighborhood=${encodeURIComponent(neighborhood.name)}`;
+                                window.open(url, '_blank');
+                            }
+                        });
+                    });
+
+                    card.appendChild(header);
+                    card.appendChild(content);
+                    return card;
+                }, 100); // Approximate height of collapsed language card
+                } else {
+                    // Desktop: render all items normally
+                    results.forEach(({ language, neighborhoods }) => {
+                        const card = document.createElement('div');
+                        card.className = 'bg-gradient-to-br from-amber-50 to-stone-50 rounded-xl border-2 border-amber-200 hover:border-amber-300 transition-all overflow-hidden';
+
+                        // Create collapsible header
+                        const header = document.createElement('div');
+                        header.className = 'p-5 cursor-pointer hover:bg-amber-50 transition-colors flex items-center justify-between';
+
+                        const chevron = document.createElement('i');
+                        chevron.className = 'fas fa-chevron-right transition-transform';
+                        chevron.style.transition = 'transform 0.3s ease';
+
+                        const headerContent = document.createElement('h3');
+                        headerContent.className = 'text-lg font-bold text-stone-800 flex items-center gap-2';
+                        headerContent.appendChild(chevron);
+                        headerContent.innerHTML += `
+                            <i class="fas fa-comments"></i>
+                            ${language}
+                        `;
+
+                        const neighborhoodCount = document.createElement('span');
+                        neighborhoodCount.className = 'text-sm font-semibold text-amber-800';
+                        neighborhoodCount.textContent = `${neighborhoods.length} neighborhoods`;
+
+                        header.appendChild(headerContent);
+                        header.appendChild(neighborhoodCount);
+
+                        // Create collapsible content
+                        const content = document.createElement('div');
+                        content.className = 'hidden';
+                        content.style.maxHeight = '300px';
+                        content.style.overflowY = 'auto';
+                        content.style.padding = '0 1.25rem 1.25rem 1.25rem';
+
+                        const neighborhoodsList = neighborhoods.map(n =>
+                            `<div class="neighborhood-pill inline-flex items-center gap-2 px-3 py-2 bg-white rounded-lg text-sm hover:bg-amber-50 transition-all cursor-pointer border border-amber-200 hover:border-amber-300" data-neighborhood-id="${n.neighborhoodId}" style="box-shadow: 0 2px 4px rgba(139, 115, 85, 0.1);">
+                                <span class="font-semibold text-amber-900">${n.neighborhood}</span>
+                                <span class="text-gray-600">${n.percent}%</span>
+                            </div>`
+                        ).join('');
+
+                        content.innerHTML = `<div class="flex flex-wrap gap-2">${neighborhoodsList}</div>`;
+
+                        // Toggle collapse on header click
+                        header.addEventListener('click', () => {
+                            if (content.classList.contains('hidden')) {
+                                content.classList.remove('hidden');
+                                chevron.style.transform = 'rotate(90deg)';
+                            } else {
+                                content.classList.add('hidden');
+                                chevron.style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Add click handlers to neighborhood spans
+                        content.querySelectorAll('[data-neighborhood-id]').forEach(span => {
+                            span.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                const neighborhoodId = parseInt(span.getAttribute('data-neighborhood-id'));
+                                const neighborhood = neighborhoodProfiles.find(n => n.id === neighborhoodId);
+                                if (neighborhood) {
+                                    console.log('Clicked neighborhood:', neighborhood.name);
+                                    const url = `${window.location.origin}${window.location.pathname}?neighborhood=${encodeURIComponent(neighborhood.name)}`;
+                                    window.open(url, '_blank');
+                                }
+                            });
+                        });
+
+                        card.appendChild(header);
+                        card.appendChild(content);
+                        languageResults.appendChild(card);
+                    });
+                }
+            }
+
+            languageButton.addEventListener('click', () => {
+                languageModal.classList.remove('hidden');
+                languageModal.classList.add('flex');
+                displayLanguageResults();
+                languageSearchInput.focus();
+            });
+
+            closeLanguageModal.addEventListener('click', () => {
+                languageModal.classList.add('hidden');
+                languageModal.classList.remove('flex');
+            });
+
+            languageModal.addEventListener('click', (e) => {
+                if (e.target === languageModal) {
+                    languageModal.classList.add('hidden');
+                    languageModal.classList.remove('flex');
+                }
+            });
+
+            languageSearchInput.addEventListener('input', (e) => {
+                // Clear previous timeout
+                if (languageSearchTimeout) {
+                    clearTimeout(languageSearchTimeout);
+                }
+
+                // Debounce the search - wait 300ms after user stops typing
+                languageSearchTimeout = setTimeout(() => {
+                    displayLanguageResults(e.target.value);
+                }, 300);
+            });
+
+            // Growth Search Functionality
+            const growthButton = document.getElementById('growth-button');
+            const growthModal = document.getElementById('growth-modal');
+            const closeGrowthModal = document.getElementById('close-growth-modal');
+            const growthResults = document.getElementById('growth-results');
+
+            function displayGrowthResults() {
+                // Filter neighborhoods that have growth data
+                const neighborhoodsWithGrowth = neighborhoodProfiles
+                    .filter(n => n.growth5yr !== undefined)
+                    .sort((a, b) => b.growth5yr - a.growth5yr)
+                    .slice(0, 20);
+
+                growthResults.innerHTML = '';
+
+                if (neighborhoodsWithGrowth.length === 0) {
+                    growthResults.innerHTML = '<p class="text-center text-gray-500 py-8">No growth data available</p>';
+                    return;
+                }
+
+                // Use virtual scrolling only on mobile for performance
+                const isMobile = window.innerWidth < 768;
+
+                if (isMobile && neighborhoodsWithGrowth.length > 10) {
+                    growthResults.style.maxHeight = '600px';
+                    growthResults.style.overflowY = 'auto';
+                    createVirtualScroller(growthResults, neighborhoodsWithGrowth, (neighborhood, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-gradient-to-br from-amber-50 to-stone-50 rounded-xl border-2 border-amber-200 hover:border-amber-300 transition-all p-5 cursor-pointer hover:shadow-lg active:scale-95 active:opacity-80';
+                    card.style.boxShadow = '0 2px 6px rgba(59, 130, 246, 0.15)';
+                    card.setAttribute('data-neighborhood-id', neighborhood.id);
+
+                    const growth = neighborhood.growth5yr;
+                    const growthColor = growth > 0 ? 'text-green-600' : growth < 0 ? 'text-red-600' : 'text-gray-600';
+                    const icon = growth > 0 ? 'fa-arrow-up' : growth < 0 ? 'fa-arrow-down' : 'fa-minus';
+
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="text-2xl font-bold ${growthColor} bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md">
+                                    ${index + 1}
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-800">${neighborhood.name}</h3>
+                                    <p class="text-sm text-gray-600">Population: ${neighborhood.population.toLocaleString()}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold ${growthColor} flex items-center gap-2">
+                                    <i class="fas ${icon}"></i>
+                                    ${growth > 0 ? '+' : ''}${growth}%
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">5-year growth</p>
+                            </div>
+                        </div>
+                    `;
+
+                    card.addEventListener('click', () => {
+                        const url = `${window.location.origin}${window.location.pathname}?neighborhood=${encodeURIComponent(neighborhood.name)}`;
+                        window.open(url, '_blank');
+                    });
+
+                    return card;
+                }, 90); // Approximate height of growth card
+                } else {
+                    // Desktop: render all items normally
+                    neighborhoodsWithGrowth.forEach((neighborhood, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'bg-gradient-to-br from-amber-50 to-stone-50 rounded-xl border-2 border-amber-200 hover:border-amber-300 transition-all p-5 cursor-pointer hover:shadow-lg active:scale-95 active:opacity-80';
+                        card.style.boxShadow = '0 2px 6px rgba(59, 130, 246, 0.15)';
+                        card.setAttribute('data-neighborhood-id', neighborhood.id);
+
+                        const growth = neighborhood.growth5yr;
+                        const growthColor = growth > 0 ? 'text-green-600' : growth < 0 ? 'text-red-600' : 'text-gray-600';
+                        const icon = growth > 0 ? 'fa-arrow-up' : growth < 0 ? 'fa-arrow-down' : 'fa-minus';
+
+                        card.innerHTML = `
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="text-2xl font-bold ${growthColor} bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md">
+                                        ${index + 1}
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-800">${neighborhood.name}</h3>
+                                        <p class="text-sm text-gray-600">Population: ${neighborhood.population.toLocaleString()}</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-2xl font-bold ${growthColor} flex items-center gap-2">
+                                        <i class="fas ${icon}"></i>
+                                        ${growth > 0 ? '+' : ''}${growth}%
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">5-year growth</p>
+                                </div>
+                            </div>
+                        `;
+
+                        card.addEventListener('click', () => {
+                            const url = `${window.location.origin}${window.location.pathname}?neighborhood=${encodeURIComponent(neighborhood.name)}`;
+                            window.open(url, '_blank');
+                        });
+
+                        growthResults.appendChild(card);
+                    });
+                }
+            }
+
+            growthButton.addEventListener('click', () => {
+                growthModal.classList.remove('hidden');
+                growthModal.classList.add('flex');
+                displayGrowthResults();
+            });
+
+            closeGrowthModal.addEventListener('click', () => {
+                growthModal.classList.add('hidden');
+                growthModal.classList.remove('flex');
+            });
+
+            growthModal.addEventListener('click', (e) => {
+                if (e.target === growthModal) {
+                    growthModal.classList.add('hidden');
+                    growthModal.classList.remove('flex');
+                }
+            });
+
+            // Initialize the dashboard - wait for user to search/use location
+            // If neighborhood was loaded from URL parameter, display it
+            if (currentNeighborhood && neighborhoodParam) {
+                setTimeout(() => {
+                    displayNeighborhoodProfile(currentNeighborhood);
+                    updateResults();
+                }, 0);
+            } else {
+                // Ensure welcome screen is visible and main content is hidden
+                const noLocationMsg = document.getElementById('no-location-message');
+                const mainContent = document.getElementById('main-content');
+                if (noLocationMsg) {
+                    noLocationMsg.style.display = 'block';
+                    noLocationMsg.style.visibility = 'visible';
+                }
+                if (mainContent) {
+                    mainContent.classList.add('hidden');
+                    mainContent.style.display = 'none';
+                }
+
+                // Clear URL parameters to show clean URL
+                if (window.history && window.history.replaceState) {
+                    const cleanUrl = window.location.pathname;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                }
+            }
+        });
+    </script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+        // Initialize AOS animations after library loads
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 50
+                });
+            }
+        });
+    </script>
+
+    <!-- Language Search Modal -->
+    <div id="language-modal" class="fixed inset-0 z-50 hidden items-center justify-center" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);">
+        <div class="glass-card rounded-3xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto shadow-2xl" style="animation: modalSlideIn 0.3s ease-out;">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold gradient-text flex items-center gap-3">
+                    <i class="fas fa-language"></i>
+                    Search by Language
+                </h2>
+                <button id="close-language-modal" class="text-gray-500 hover:text-gray-700 transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="mb-6">
+                <div class="relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input
+                        type="text"
+                        placeholder="Search for a language..."
+                        id="language-search-input"
+                        class="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-amber-600 focus:outline-none transition-colors"
+                        style="font-family: 'Inter', sans-serif;"
+                    />
+                </div>
+            </div>
+
+            <div id="language-results" class="space-y-3">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Growth Search Modal -->
+    <div id="growth-modal" class="fixed inset-0 z-50 hidden items-center justify-center" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);">
+        <div class="glass-card rounded-3xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto shadow-2xl" style="animation: modalSlideIn 0.3s ease-out;">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold gradient-text flex items-center gap-3">
+                        <i class="fas fa-chart-line"></i>
+                        Top 20 Highest Growth Neighborhoods
+                    </h2>
+                    <p class="text-xs text-gray-500 mt-1 ml-10">Neighborhoods with incomplete census data not shown.</p>
+                </div>
+                <button id="close-growth-modal" class="text-gray-500 hover:text-gray-700 transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <div id="growth-results" class="space-y-3">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+</body>
+</html>

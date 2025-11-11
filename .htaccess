@@ -1,0 +1,56 @@
+# Security Rules for HomeTurf
+# Protect sensitive files from web access
+
+# Deny access to .env files (contains API keys and secrets)
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+# Deny access to configuration files
+<FilesMatch "^(config\.php)$">
+    Require all denied
+</FilesMatch>
+
+# Deny access to git files
+<FilesMatch "^\.git">
+    Require all denied
+</FilesMatch>
+
+# Deny access to backup files
+<FilesMatch "\.(bak|backup|old|tmp|swp)$">
+    Require all denied
+</FilesMatch>
+
+# Deny access to sensitive documentation (optional - remove if you want docs public)
+# <FilesMatch "^(SECURITY\.md|API-KEY-PROTECTION\.md)$">
+#     Require all denied
+# </FilesMatch>
+
+# Enable HTTPS redirect (if not already handled by server config)
+# Uncomment the lines below if you want to force HTTPS
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect against clickjacking
+<IfModule mod_headers.c>
+    # Allow images to be embedded in social media previews
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+        Header unset X-Frame-Options
+        # Force Twitter to re-fetch images (short cache for social media bots)
+        Header set Cache-Control "public, max-age=600"
+    </FilesMatch>
+
+    # Protect HTML pages
+    <FilesMatch "\.(html|htm|php)$">
+        Header always set X-Frame-Options "SAMEORIGIN"
+    </FilesMatch>
+
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>

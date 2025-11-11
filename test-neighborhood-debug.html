@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neighborhood Debug Test</title>
+</head>
+<body>
+    <h1>Neighborhood Matching Debug</h1>
+    <p>Test Address: 123 Dowling Avenue (43.63666, -79.43835)</p>
+    <div id="results"></div>
+
+    <script src="data-neighborhoods.js?v=5"></script>
+    <script>
+        function deg2rad(deg) { return deg * (Math.PI/180); }
+
+        function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            return calculateHaversineDistance(lat1, lon1, lat2, lon2);
+        }
+
+        // Test address
+        const testLat = 43.63665659999999;
+        const testLon = -79.43835159999999;
+
+        let output = `<p>Loaded ${neighborhoodProfiles.length} neighborhoods</p>`;
+
+        // Find closest neighborhood
+        let closestNeighborhood = null;
+        let closestDistance = Infinity;
+        const distances = [];
+
+        neighborhoodProfiles.forEach(neighborhood => {
+            if (!neighborhood.location || neighborhood.location.length < 2) {
+                return;
+            }
+
+            const distance = calculateDistance(testLat, testLon, neighborhood.location[0], neighborhood.location[1]);
+
+            distances.push({
+                name: neighborhood.name,
+                id: neighborhood.id,
+                location: neighborhood.location,
+                distance: distance
+            });
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestNeighborhood = neighborhood;
+            }
+        });
+
+        // Sort by distance
+        distances.sort((a, b) => a.distance - b.distance);
+
+        output += `<h2>Closest 5 neighborhoods:</h2><ol>`;
+        distances.slice(0, 5).forEach(n => {
+            output += `<li>${n.name} (ID: ${n.id}) - ${n.distance.toFixed(4)} km - [${n.location[0]}, ${n.location[1]}]</li>`;
+        });
+        output += `</ol>`;
+
+        output += `<h2>Selected neighborhood: ${closestNeighborhood ? closestNeighborhood.name : 'None'}</h2>`;
+        output += `<p>Distance: ${closestDistance.toFixed(4)} km</p>`;
+
+        // Check specific neighborhoods
+        output += `<h2>Specific Checks:</h2>`;
+        const lp = neighborhoodProfiles.find(n => n.name === 'Little Portugal');
+        const sp = neighborhoodProfiles.find(n => n.name === 'South Parkdale');
+
+        if (lp) {
+            const distLP = calculateDistance(testLat, testLon, lp.location[0], lp.location[1]);
+            output += `<p>Little Portugal: [${lp.location[0]}, ${lp.location[1]}] - ${distLP.toFixed(4)} km</p>`;
+        }
+
+        if (sp) {
+            const distSP = calculateDistance(testLat, testLon, sp.location[0], sp.location[1]);
+            output += `<p>South Parkdale: [${sp.location[0]}, ${sp.location[1]}] - ${distSP.toFixed(4)} km</p>`;
+        }
+
+        document.getElementById('results').innerHTML = output;
+        console.log('Closest neighborhood:', closestNeighborhood);
+    </script>
+</body>
+</html>

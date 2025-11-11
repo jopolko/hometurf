@@ -1,0 +1,46 @@
+BEACHES-EAST YORK - 2021 CENSUS DATA
+Source: Statistics Canada
+URL: https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm?Lang=E&SearchText=Beaches--East%20York&DGUIDlist=2013A000435007
+
+POPULATION STATISTICS
+=====================
+Total Population (2021): 109,359
+Population (2016): 109,468
+Population Change (2016-2021): -0.1%
+Population Density: 6,531.2 per square kilometer
+Land Area: 16.74 square kilometers
+
+AGE DEMOGRAPHICS
+================
+Median Age: 41.2 years
+Average Age: 40.8 years
+
+Age Groups:
+- 0-14 years: 17.1%
+- 15-64 years: 67.6%
+- 65 years and over: 15.3%
+
+HOUSEHOLD CHARACTERISTICS
+=========================
+Total Private Dwellings: 48,749
+Occupied Dwellings: 45,722
+Average Household Size: 2.4 persons
+
+Household Composition:
+- One-person households: 14,585
+- Two-person households: 13,540
+- Three-person households: 7,585
+- Four-person households: 7,095
+
+INCOME STATISTICS (2020)
+=========================
+Median Total Income: $44,000
+Median After-tax Income: $39,600
+Median Household Total Income: $90,000
+Median Household After-tax Income: $78,500
+
+DEMOGRAPHIC DIVERSITY
+=====================
+Visible Minority Population: 39,220 (36.1%)
+Indigenous Population: 1,980 (1.8%)
+Foreign-Born Population: 34,420 (31.7%)

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Loading Test</title>
+    <script src="data-neighborhoods.js?v=7"></script>
+    <script src="data-childcare.js?v=7"></script>
+    <script src="data-schools.js?v=7"></script>
+</head>
+<body>
+    <h1>Data Loading Test</h1>
+    <div id="results"></div>
+
+    <script>
+        const results = document.getElementById('results');
+        let html = '<h2>Results:</h2>';
+
+        html += '<p>childcareData: ' + (typeof childcareData !== 'undefined' ? 'LOADED (' + childcareData.length + ' items)' : 'NOT LOADED') + '</p>';
+        html += '<p>schools: ' + (typeof schools !== 'undefined' ? 'LOADED (' + schools.length + ' items)' : 'NOT LOADED') + '</p>';
+        html += '<p>neighborhoodProfiles: ' + (typeof neighborhoodProfiles !== 'undefined' ? 'LOADED (' + neighborhoodProfiles.length + ' items)' : 'NOT LOADED') + '</p>';
+
+        results.innerHTML = html;
+
+        console.log('childcareData:', typeof childcareData, childcareData ? childcareData.length : 'N/A');
+        console.log('schools:', typeof schools, schools ? schools.length : 'N/A');
+        console.log('neighborhoodProfiles:', typeof neighborhoodProfiles, neighborhoodProfiles ? neighborhoodProfiles.length : 'N/A');
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+BEACHES-EAST YORK - 2016 CENSUS DATA
+Source: Statistics Canada
+URL: https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/page.cfm?Lang=E&Geo1=FED&Code1=35007
+
+POPULATION STATISTICS
+=====================
+Total Population (2016): 109,468
+Population (2011): 107,084
+Population Growth (2011-2016): 2.2%
+Population Density: 6,579.8 per square kilometer
+Land Area: 16.64 square kilometers
+
+AGE CHARACTERISTICS
+===================
+Median Age: 40.5 years
+Average Age: 39.8 years
+
+Age Group Breakdown:
+- 0-14 years: 17.5%
+- 15-64 years: 69.4%
+- 65 years and over: 13.1%
+
+HOUSEHOLD INFORMATION
+=====================
+Total Private Dwellings: 47,849
+Occupied Dwellings: 45,977
+Average Household Size: 2.4 persons
+
+Dwelling Types:
+- Single-detached house: 12,815
+- Apartment (5+ storeys): 11,710
+- Other attached dwellings: 21,450
+
+INCOME STATISTICS
+==================
+Median Household Total Income: $69,829
+Median Household After-Tax Income: $61,022
+Median Individual Total Income: $34,904
+Median Employment Income: $39,641
+
+LANGUAGE
+========
+English Only Speakers: 93,050
+Bilingual (English and French): 13,120
+Other Language Speakers: Varied multicultural representation
