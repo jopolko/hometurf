@@ -1,4 +1,5 @@
 # robots.txt for HomeTurf - Toronto Neighborhood Guide
+# Note: Main sitemap is managed at https://joshuaopolko.com/sitemap.xml
 
 User-agent: *
 Allow: /
@@ -10,9 +11,6 @@ Disallow: /geocode-*.php
 
 # Allow access to data files for crawling
 Allow: /data-*.js
-
-# Sitemap location
-Sitemap: https://joshuaopolko.com/hometurf/sitemap.xml
 
 # Crawl-delay (optional, helps prevent server overload)
 Crawl-delay: 1
